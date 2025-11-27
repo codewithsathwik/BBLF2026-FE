@@ -8,7 +8,7 @@
     --font-ink-alt: #FF9F00;
     --font-ink-head: #222222;
 
-    --border-radius : 18px;
+    --border-radius: 18px;
 }
 
 * {
@@ -29,32 +29,38 @@ body {
 
 
 /* ================utilities / buttons / others================ */
-.container{
-    width: min(1200px, 94vw);
+.container {
+    width: min(1200px, 90vw);
     margin-inline: auto;
     padding-inline: 12px;
 }
-.btn{
+
+.btn {
     background-color: var(--color-alt);
-    padding: 7px 10px;
+    padding: 7px 12px;
     border-radius: var(--border-radius);
     color: white;
     transition: all 300ms ease;
+    font-size: 16px !important;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: var(--font-ink-alt);
     color: var(--font-ink-main);
 }
 
 
 /* ================top-nav================  */
-.top-nav{
+.top-nav {
     background-color: var(--color-alt);
-    font-family: var(--font-alt) !important; 
+    font-family: var(--font-alt) !important;
     height: 25px;
+
 }
 
-.top-bar ,.top-social, .old-web{
+.top-bar,
+.top-social,
+.old-web {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,49 +68,90 @@ body {
     font-size: 15px;
     height: 100%;
 }
-.top-social ,.old-web{
+
+.top-bar {
+    width: 90vw !important;
+}
+
+.top-social,
+.old-web {
     gap: 15px;
 }
-.top-social img{
+
+.top-social img {
     height: 17px;
     display: block;
 }
-.old-web a{
+
+.old-web a {
     transition: color 300ms ease;
 }
-.old-web a:hover{
+
+.old-web a:hover {
     color: var(--font-ink-alt);
 }
 
 
 /* ================navigation bar================ */
-header{
+header {
     background-color: var(--color-primary);
-    font-size: 16px;
+    font-size: 15px;
     color: var(--font-ink-main);
-    /* height: 110px; */
 }
 
-.nav-bar, .nav{
+.nav-bar,
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* height: 100%; */
+
 }
-.nav-bar{
+
+.nav-bar {
     width: 90vw !important;
 }
 
-.nav{
+.nav {
     gap: 20px;
 }
 
-.nav-bar button{
-    display: none;
-}
-.nav-bar img{
+.nav-bar img {
     height: 120px;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: var(--font-ink-alt);
+}
+
+.nav-link {
+    transition: color 300ms ease;
+}
+
+.menu-btn {
+    display: none;
+    background-color: inherit;
+    border: none;
+    color: var(--font-ink-main);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* ================media queries for top bars================ */
+@media screen and (max-width : 1030px) {
+    .nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+@media screen and (max-width : 520px) {
+    .top-social {
+        display: none;
+    }
+    .top-bar{
+        justify-content: flex-end;
+    }
 }
