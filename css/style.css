@@ -36,8 +36,8 @@ body {
     padding-inline: 12px;
 }
 
-.dispaly{
-    display: block;
+.display {
+    display: inline-flex !important;
 }
 
 .btn {
@@ -53,6 +53,7 @@ body {
     background-color: var(--font-ink-alt);
     color: var(--font-ink-main);
 }
+
 
 
 /* ================top-nav================  */
@@ -113,8 +114,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
+
+
 
 .nav-bar {
     width: 90vw !important;
@@ -146,40 +148,36 @@ header {
     border: none;
     color: var(--font-ink-main);
     font-size: 30px;
-    font-weight: 500;
     cursor: pointer;
 }
 
 /* ================media queries for top bars================ */
-@media screen and (max-width : 1030px) {
+@media screen and (max-width : 1050px) {
     .nav a img {
         display: block;
     }
 
     .nav {
         display: none;
-        flex-direction : column;
-        position : fixed;
-        width : 290px;
-        padding-top : 20px;
-        top : 0;
-        left : 0;
+        flex-direction: column;
+        position: fixed;
+        width: 290px;
+        padding-top: 20px;
+        top: 0;
+        left: 0;
         background-color: var(--color-primary);
-        height : 100vh;
-        justify-content : start;
+        height: 100vh;
+        justify-content: start;
         gap: 7px;
     }
 
-    .nav .nav-link{
+    .nav .nav-link {
         /* background-color: #0B4968; */
         text-align: center;
         width: 100%;
         padding: 10px;
     }
 
-    .nav .nav-link:hover{
-
-    }
 
     .menu-btn {
         display: block;
@@ -200,7 +198,12 @@ header {
         font-size: 12px;
     }
 
-    .nav-bar img, .nav a img{
+    .btn {
+        font-size: 14px;
+    }
+
+    .nav-bar img,
+    .nav a img {
         height: 90px;
     }
 }
