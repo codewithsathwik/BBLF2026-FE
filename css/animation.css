@@ -1,0 +1,27 @@
+
+
+@keyframes slide-left-normal {
+  0% {
+    left: -100vh;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide-right-normal {
+  0% {
+    left: 0;
+  }
+  100% {
+    left:  -100vh;
+  }
+}
+
+.ani-close {
+  animation: slide-right-normal 900ms ease forwards;
+}
+
+.ani-open {
+  animation: slide-left-normal 900ms ease forwards;
+}
