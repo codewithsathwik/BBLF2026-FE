@@ -1,0 +1,110 @@
+:root {
+    --font-main: "Poppins", serif;
+    --font-alt: "Red Rose", serif;
+
+    --color-primary: #DDF2FD;
+    --color-alt: #4AB2E6;
+    --font-ink-main: #0B4968;
+    --font-ink-alt: #FF9F00;
+    --font-ink-head: #222222;
+
+    --border-radius : 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+}
+
+
+/* ================utilities / buttons / others================ */
+.container{
+    width: min(1200px, 94vw);
+    margin-inline: auto;
+    padding-inline: 12px;
+}
+.btn{
+    background-color: var(--color-alt);
+    padding: 7px 10px;
+    border-radius: var(--border-radius);
+    color: white;
+    transition: all 300ms ease;
+}
+.btn:hover{
+    background-color: var(--font-ink-alt);
+    color: var(--font-ink-main);
+}
+
+
+/* ================top-nav================  */
+.top-nav{
+    background-color: var(--color-alt);
+    font-family: var(--font-alt) !important; 
+    height: 25px;
+}
+
+.top-bar ,.top-social, .old-web{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    height: 100%;
+}
+.top-social ,.old-web{
+    gap: 15px;
+}
+.top-social img{
+    height: 17px;
+    display: block;
+}
+.old-web a{
+    transition: color 300ms ease;
+}
+.old-web a:hover{
+    color: var(--font-ink-alt);
+}
+
+
+/* ================navigation bar================ */
+header{
+    background-color: var(--color-primary);
+    font-size: 16px;
+    color: var(--font-ink-main);
+    /* height: 110px; */
+}
+
+.nav-bar, .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 100%; */
+}
+.nav-bar{
+    width: 90vw !important;
+}
+
+.nav{
+    gap: 20px;
+}
+
+.nav-bar button{
+    display: none;
+}
+.nav-bar img{
+    height: 120px;
+}
+.nav-link:hover{
+    color: var(--font-ink-alt);
+}
