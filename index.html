@@ -20,7 +20,7 @@
 
 <body>
     <!-- top bar -->
-    <section class="top-nav">
+    <section class="top-nav" aria-label="Top bar">
         <div class="top-bar container">
             <div class="top-social">
                 <p>Follow us on : </p>
@@ -37,7 +37,7 @@
     </section>
     <!-- top bar end -->
 
-    <header>
+    <header aria-label="Naviagtion">
         <div class="container nav-bar">
             <a href="/">
                 <img src="assets/images/bblf-logo.png" alt="bblf-logo">
@@ -57,9 +57,57 @@
                 <a href="" class="btn">Register</a>
             </nav>
 
-            <button class="menu-btn" aria-expanded="false">☰</button>
+            <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
         </div>
     </header>
+
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <!-- <div class="hero-banner">
+                <img src="" alt="Banner of BBLF2026">
+            </div> -->
+            <div class="hero-text">
+                <h1 class="hero-tag">Soul of South</h1>
+                <h1 class="hero-main">Book Brahma Literature Festival - 2026</h1>
+                <h2 class="date-badge">06-08 August 2026</h2>
+                <div class="date-badge">
+                    <p>📌 St. John's Auditorium, Koramangala, Bengaluru, Karnataka - 560034</p>
+                </div>
+                <div class="hero-sub">
+                    <p>Register for BBLF2026</p>
+                </div>
+
+                <div class="countdown" role="timer" aria-label="Count down for Festival">
+                    <div class="part">
+                        <div id="d">-</div>
+                        <div >Days</div>
+                    </div>
+                    <div class="part">
+                        <div  id="h">-</div>
+                        <div >Hours</div>
+                    </div>
+                    <div class="part">
+                        <div  id="m">-</div>
+                        <div >Minutes</div>
+                    </div>
+                    <div class="part">
+                        <div  id="s">-</div>
+                        <div >Seconds</div>
+                    </div>
+                </div>
+
+                <div class="hero-btn">
+                    <a href="" class="btn">Register</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
 
     <script src="js/index.js"></script>
 </body>

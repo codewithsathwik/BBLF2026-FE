@@ -1,4 +1,4 @@
-// navgation bar toggle for mobile
+// ================navgation bar toggle for mobile================
 let toggleBtn = document.querySelector(".menu-btn");
 let navMenu = document.querySelector(".nav");
 let aTag = document.querySelectorAll(".nav a");
@@ -10,7 +10,7 @@ if (toggleBtn) {
     toggleBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevent window click
         arExp = toggleBtn.getAttribute("aria-expanded");
-        console.log(arExp);
+        // console.log(arExp);
         if (arExp === "false") {
             toggleBtn.setAttribute('aria-expanded', String("true"));
             navMenu.classList.add("display");
@@ -49,10 +49,41 @@ if (toggleBtn) {
         }
     });
 
+    //to close the navbar when a link is clicked (mobile or tablet)
     aTag.forEach((a) => {
         a.addEventListener("click", () => {
             navCloss();
         })
-    })
+    });
+}
 
+
+// ================timer for the event================
+
+const eventDate = new Date("2026-08-06 GMT+05:30").getTime(); // IN YYYY-MM-DD and time zone for corrrect date
+const d = document.getElementById("d");
+const h = document.getElementById("h");
+const m = document.getElementById("m");
+const s = document.getElementById("s");
+
+countdown();
+setInterval(countdown, 1000);
+
+function countdown(){
+    if(!d || !h || !m || !s)
+    return;
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    if(distance>0){
+        d.textContent = Math.floor(distance / (1000 * 60 * 60 *24));
+        h.textContent = Math.floor(distance % (1000 * 60 * 60 *24) / (1000 * 60 * 60));
+        m.textContent = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+        s.textContent = Math.floor(distance % (1000 * 60) / (1000));
+    }
+    else{
+        d.textContent = "0";
+        h.textContent = "0";
+        m.textContent = "0";
+        s.textContent = "0";
+    }
 }

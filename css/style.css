@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
 :root {
     --font-main: "Poppins", serif;
     --font-alt: "Red Rose", serif;
@@ -9,16 +11,18 @@
     --font-ink-head: #222222;
 
     --border-radius: 18px;
-    /* --shadow : 0px 0px 20px #5a5b5c; */
+    --shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
 
 * {
     box-sizing: border-box;
+
 }
 
 a {
     color: inherit;
     text-decoration: none;
+
 }
 
 html,
@@ -28,6 +32,10 @@ body {
     font-family: var(--font-main);
 }
 
+section {
+    padding: 45px 0px;
+    /* padding for all individual section*/
+}
 
 /* ================utilities / buttons / others================ */
 .container {
@@ -61,6 +69,7 @@ body {
     background-color: var(--color-alt);
     font-family: var(--font-alt) !important;
     height: 25px;
+    padding: 0 !important;
 
 }
 
@@ -106,7 +115,7 @@ header {
     position: sticky;
     top: 0;
     left: 0;
-    /* box-shadow: var(--shadow); */
+    box-shadow: var(--shadow);
 }
 
 .nav-bar,
@@ -169,6 +178,7 @@ header {
         height: 100vh;
         justify-content: start;
         gap: 7px;
+        box-shadow: var(--shadow);
     }
 
     .nav .nav-link {
@@ -207,3 +217,62 @@ header {
         height: 90px;
     }
 }
+
+/* ================hero page================  */
+h1 {
+    margin: 0;
+}
+
+.hero {
+    background-color: var(--color-primary);
+    color: var(--font-ink-main);
+}
+
+.hero-main {
+    line-height: 1.1;
+    margin: .25rem 0 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(30px, 3vw, 45px);
+}
+
+.date-badge {
+    color: var(--font-ink-head);
+}
+
+.hero-sub,
+.date-badge,
+.timer {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-tag {
+    color: #E8A446;
+    font-family: "Allura", cursive !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hero-btn {
+    margin-top: 20px;
+}
+
+/* timer countdown  */
+.countdown {
+    max-width: px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    color: var(--font-ink-main);
+    max-width: 300px;
+    font-weight: 600;
+}
+
+.part{
+    text-align: center;
+    padding: 5px;
+}
+
