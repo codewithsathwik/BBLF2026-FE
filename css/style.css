@@ -10,7 +10,7 @@
     --font-ink-alt: #FF9F00;
     --font-ink-head: #222222;
 
-    --border-radius: 18px;
+    --border-radius: 10px;
     --shadow: 0 10px 30px rgba(0, 0, 0, .08);
 }
 
@@ -178,7 +178,7 @@ header {
         height: 100vh;
         justify-content: start;
         gap: 7px;
-        box-shadow: var(--shadow);
+        box-shadow:  0 15px 30px rgba(0, 0, 0, .5);
     }
 
     .nav .nav-link {
@@ -269,6 +269,10 @@ h1 {
     color: var(--font-ink-main);
     max-width: 300px;
     font-weight: 600;
+    /* background-color: var(--color-alt);
+    color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow); */
 }
 
 .part{
