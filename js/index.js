@@ -69,21 +69,45 @@ const s = document.getElementById("s");
 countdown();
 setInterval(countdown, 1000);
 
-function countdown(){
-    if(!d || !h || !m || !s)
-    return;
+function countdown() {
+    if (!d || !h || !m || !s)
+        return;
     const now = new Date().getTime();
     const distance = eventDate - now;
-    if(distance>0){
-        d.textContent = Math.floor(distance / (1000 * 60 * 60 *24));
-        h.textContent = Math.floor(distance % (1000 * 60 * 60 *24) / (1000 * 60 * 60));
+    if (distance > 0) {
+        d.textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+        h.textContent = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
         m.textContent = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
         s.textContent = Math.floor(distance % (1000 * 60) / (1000));
     }
-    else{
+    else {
         d.textContent = "0";
         h.textContent = "0";
         m.textContent = "0";
         s.textContent = "0";
     }
+}
+
+
+// ================live-embed popup's================
+let popupContainer = document.getElementById("live-embeded-popup");
+const iframe = document.querySelector(".popup-container iframe");
+const liveGrid = document.querySelectorAll(".live-card");
+
+liveGrid.forEach((card) => {
+    card.addEventListener("click", () => {
+        let embededURL = card.getAttribute("data-embed-url");
+        openPopup(embededURL);
+    })
+})
+
+function openPopup(link) {
+    iframe.src = link;
+    popupContainer.classList.add("popup-display");
+}
+
+function closePopup() {
+    if (!popupContainer) return;
+    iframe.src = "";
+    popupContainer.classList.remove("popup-display")
 }

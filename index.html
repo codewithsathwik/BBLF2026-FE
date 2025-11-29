@@ -106,7 +106,8 @@
         </div>
     </section>
 
-    <section class="live-embed">
+    <!-- live emebed from (DB) -->
+    <section class="live-embed" id="live">
         <div class="animation-elements">
             <div class="element">🪶</div>
             <div class="element">📜</div>
@@ -124,12 +125,12 @@
             <div class="element">📚</div>
             <div class="element">🪶</div>
         </div>
+
         <div class="container live-container">
             <h2>Watch Live</h2>
             <!-- live-embeded grid -->
             <div class="live-grid">
-
-                <article class="live-card">
+                <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc"> 
                     <div class="live-img">
                         <img src="/assets/live.webp" alt="Thumbnail of the livestream">
                     </div>
@@ -138,7 +139,7 @@
                     </div>
                 </article>
 
-                <article class="live-card">
+                <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
                     <div class="live-img">
                         <img src="/assets/live.webp" alt="Thumbnail of the livestream">
                     </div>
@@ -147,7 +148,7 @@
                     </div>
                 </article>
 
-                <article class="live-card">
+                <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
                     <div class="live-img">
                         <img src="/assets/live.webp" alt="Thumbnail of the livestream">
                     </div>
@@ -156,7 +157,7 @@
                     </div>
                 </article>
 
-                <article class="live-card">
+                <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
                     <div class="live-img">
                         <img src="/assets/live.webp" alt="Thumbnail of the livestream">
                     </div>
@@ -165,7 +166,7 @@
                     </div>
                 </article>
 
-                <article class="live-card">
+                <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
                     <div class="live-img">
                         <img src="/assets/live.webp" alt="Thumbnail of the livestream">
                     </div>
@@ -173,10 +174,18 @@
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
-
             </div>
             <!-- live-embeded grid -->
         </div>
+
+        <!-- popup the live embeds -->
+        <div class="container live-popup " id="live-embeded-popup">
+            <div class="popup-container container">
+                <span class="popup-close" onclick="closePopup()">&times;</span>
+                <iframe src="" title="Youtube Embed live video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+            </div>
+        </div>
+
     </section>
 
 
@@ -184,3 +193,4 @@
 </body>
 
 </html>
+
