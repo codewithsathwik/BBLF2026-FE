@@ -389,7 +389,7 @@ header {
     min-width: 200px;
     padding: 15px;
     max-width: 900px;
-    /* height: 360px; */   
+    height: 360px;   
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
