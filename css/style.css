@@ -75,7 +75,7 @@ section {
     font-family: var(--font-alt) !important;
     height: 25px;
     padding: 0 !important;
-
+    /* position: sticky; */
 }
 
 .top-bar,
@@ -131,14 +131,13 @@ header {
     align-items: center;
 }
 
-
-
 .nav-bar {
     width: 90vw !important;
 }
 
 .nav {
     gap: 20px;
+    font-weight: 600;
 }
 
 .nav a img {
@@ -284,7 +283,6 @@ header {
     padding: 5px;
 }
 
-
 /* ================live embeded section================ */
 .live-embed {
     overflow: hidden;
@@ -331,7 +329,7 @@ header {
         grid-template-columns: 1fr 1fr ;
     }
 }
-@media (max-width : 720px) {
+@media (max-width : 520px) {
     .live-grid{
         grid-template-columns: 1fr;
     }
@@ -350,8 +348,6 @@ header {
     box-shadow:
     0 0 20px rgba(255, 215, 0, 0.4),
     0 0 40px rgba(255, 215, 0, 0.4);
-  
-
 }
 
 .live-img img , .live-img{
@@ -369,3 +365,4 @@ header {
     font-family: var(--font-alt);
     color: var(--font-ink-main);
 }
+
