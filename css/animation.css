@@ -143,3 +143,69 @@
     font-size: 24px;
   }
 }
+
+
+/* ================animation for popop================ */
+.popup-container{
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+@keyframes popup-show {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ani-popup-show {
+    animation: popup-show 600ms ease forwards;
+}
+
+@keyframes popup-remove {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
+.ani-popup-remove {
+    animation: popup-remove 600ms ease forwards;
+}
+
+
+/* for black overlay */
+.live-popup{
+    opacity: 0;
+}
+
+@keyframes overlay-show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.ani-overlay-show {
+    animation: overlay-show 300ms ease forwards;
+}
+
+@keyframes overlay-remove {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.ani-overlay-remove {
+    animation: overlay-remove 300ms ease forwards;
+}

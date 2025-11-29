@@ -91,23 +91,47 @@ function countdown() {
 
 // ================live-embed popup's================
 let popupContainer = document.getElementById("live-embeded-popup");
+let innerPopupContainer = document.querySelector(".popup-container");
 const iframe = document.querySelector(".popup-container iframe");
 const liveGrid = document.querySelectorAll(".live-card");
+const closeBtn = document.querySelector(".popup-close");
 
 liveGrid.forEach((card) => {
     card.addEventListener("click", () => {
         let embededURL = card.getAttribute("data-embed-url");
         openPopup(embededURL);
     })
-})
+});
+
+closeBtn.addEventListener("click", () => closePopup());
 
 function openPopup(link) {
     iframe.src = link;
+    innerPopupContainer.classList.remove("ani-popup-remove");
+    popupContainer.classList.remove("ani-overlay-remove");
+    
     popupContainer.classList.add("popup-display");
+    
+    popupContainer.classList.add("ani-overlay-show");
+    innerPopupContainer.classList.add("ani-popup-show");
 }
 
 function closePopup() {
     if (!popupContainer) return;
+
+    innerPopupContainer.classList.remove("ani-popup-show");
+    innerPopupContainer.classList.add("ani-popup-remove");
+
     iframe.src = "";
-    popupContainer.classList.remove("popup-display")
+
+    popupContainer.classList.remove("ani-overlay-show");
+    popupContainer.classList.add("ani-overlay-remove");
+
+    //to remove the popup
+    popupContainer.addEventListener("animationend", (e) => {
+        if (e.animationName === "overlay-remove") {
+            popupContainer.classList.remove("popup-display");
+        }
+    })
+
 }
