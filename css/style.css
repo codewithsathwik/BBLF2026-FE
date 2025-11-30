@@ -173,6 +173,11 @@ header {
         display: block;
     }
 
+    .nav-bar img,
+    .nav a img {
+        height: 80px;
+    }
+
     .nav {
         display: none;
         flex-direction: column;
@@ -222,7 +227,7 @@ header {
 
     .nav-bar img,
     .nav a img {
-        height: 90px;
+        height: 60px;
     }
 }
 
@@ -327,7 +332,7 @@ header {
 
 
 @media (max-width : 1030px) {
-    .live-grid{
+.live-grid{
         grid-template-columns: 1fr 1fr ;
     }
 }
@@ -414,4 +419,11 @@ header {
     position: absolute;
     top: -45px;
     right: 0;
+}
+
+
+
+/* ================about section================ */
+.about{
+    background-color: var(--color-primary);
 }
