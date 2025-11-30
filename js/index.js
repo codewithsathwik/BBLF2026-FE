@@ -109,9 +109,9 @@ function openPopup(link) {
     iframe.src = link;
     innerPopupContainer.classList.remove("ani-popup-remove");
     popupContainer.classList.remove("ani-overlay-remove");
-    
+
     popupContainer.classList.add("popup-display");
-    
+
     popupContainer.classList.add("ani-overlay-show");
     innerPopupContainer.classList.add("ani-popup-show");
 }
@@ -132,6 +132,49 @@ function closePopup() {
         if (e.animationName === "overlay-remove") {
             popupContainer.classList.remove("popup-display");
         }
-    })
-
+    });
 }
+
+
+// counter up section logic
+// const counters = document.querySelectorAll(".counter .target");
+// const speed = 500;
+
+// counters.forEach((counter) => {
+//     counter.textContent = "0";
+
+//     function updateCounter(){
+//         const targetValue = counter.getAttribute("data-target");
+//         const target = Number(targetValue);
+//         const c = Number(counter.textContent);
+//         const increment = Math.ceil(increment);
+//         if(c < target){
+//             counter.textContent = `${Math.ceil(c) + increment}`;
+//             setTimeout(updateCounter, 1);
+//         }else{
+//             counter.textContent = target;
+//         }
+//     }
+//     updateCounter();
+// });
+
+const counters = document.querySelectorAll(".counter .target");
+const duration = 2000; // ms
+
+counters.forEach((counter) => {
+    const targetValue = Number(counter.getAttribute("data-target"));
+    let startTime = null;
+
+    function updateCounter(timestamp) {
+        if (!startTime)
+            startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.floor(progress * targetValue);
+        counter.textContent = current.toLocaleString();
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        }
+    }
+    requestAnimationFrame(updateCounter);
+});
