@@ -21,7 +21,7 @@ if (toggleBtn) {
         }
     });
 
-    // the below is used to clode mobile nav after animation
+    // the below is used to close mobile nav after animation
     navMenu.addEventListener("animationend", (e) => {
         if (e.animationName === "slide-right-normal") {
             navMenu.classList.remove("display");
@@ -146,22 +146,23 @@ function closePopup() {
 //     function updateCounter(){
 //         const targetValue = counter.getAttribute("data-target");
 //         const target = Number(targetValue);
-//         const c = Number(counter.textContent);
-//         const increment = Math.ceil(increment);
+//         const c = Math.ceil(Number(counter.textContent));
+//         const increment = Math.ceil(target/speed);
 //         if(c < target){
-//             counter.textContent = `${Math.ceil(c) + increment}`;
+//             counter.textContent = `${c + increment}`;
 //             setTimeout(updateCounter, 1);
 //         }else{
-//             counter.textContent = target;
+//             counter.textContent = target.toLocaleString();
 //         }
 //     }
 //     updateCounter();
 // });
 
 const counters = document.querySelectorAll(".counter .target");
+const counterContainer = document.querySelector(".counter-up")
 const duration = 2000; // ms
 
-counters.forEach((counter) => {
+function animate(counter){
     const targetValue = Number(counter.getAttribute("data-target"));
     let startTime = null;
 
@@ -177,4 +178,16 @@ counters.forEach((counter) => {
         }
     }
     requestAnimationFrame(updateCounter);
-});
+}
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            counters.forEach(animate);
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold: 0.3});
+
+observer.observe(counterContainer);
