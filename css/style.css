@@ -91,7 +91,7 @@ section {
 }
 
 .top-bar {
-    width: 90vw !important;
+    /* width: 90vw !important; */
 }
 
 .top-social,
@@ -135,7 +135,7 @@ header {
 }
 
 .nav-bar {
-    width: 90vw !important;
+    /* width: 90vw !important; */
 }
 
 .nav {
@@ -148,7 +148,7 @@ header {
 }
 
 .nav-bar img {
-    height: 120px;
+    height: 90px;
 }
 
 .nav-link:hover {
