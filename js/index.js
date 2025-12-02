@@ -193,9 +193,9 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(counterContainer);
 
 
-//speaker section navbar swaping
+//================speaker section navbar swaping================
 const buttons = document.querySelectorAll(".speaker-btn");
-const allSection = document.querySelectorAll(".grid-speakers");
+const allSection = document.querySelectorAll(".speaker-acc");
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -210,10 +210,22 @@ function swapingSections(button) {
         const targetId = button.getAttribute("data-target");
         allSection.forEach(section => {
             let sectionId = section.id;
-            if(sectionId === targetId){
+            if (sectionId === targetId) {
                 allSection.forEach((sec) => sec.classList.remove("speakers-show"));
                 section.classList.add("speakers-show");
-            }         
+            }
         });
     }
 }
+
+// to arrangthe the icons in the performance Grid
+const performanceCard = document.querySelectorAll(".performance");
+let i = 1, n = performanceCard.length;
+
+performanceCard.forEach(card => {
+    if (n % i == 0)
+        card.classList.add("performance-st");
+    else
+        card.classList.add("performance-rev");
+    i++;
+});
