@@ -497,7 +497,7 @@ header {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 30px;
 }
 
 .counter img {
@@ -512,14 +512,14 @@ header {
     line-height: 1.6;
     transition: all 300ms linear;
     border-radius: var(--border-radius);
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
 }
 
-.counter:hover {
-    transform: scale(1.03);
+/* .counter:hover {
+    transform: scale(1);
     box-shadow: var(--shadow);
     
-}
+} */
 
 .counter span {
     font-size: 12px;
@@ -535,3 +535,165 @@ header {
 .target::after {
     content: "+";
 }
+
+
+/* ================speakers section from (DB)================ */
+.speaker-section {
+    background-color: var(--color-primary);
+    text-align: center;
+}
+
+.speaker-section h2 {
+    margin-top: 0;
+    color: var(--font-ink-main);
+    font-size: 28px;
+}
+
+.speacker-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: #F8F1E6;
+    border-radius: var(--border-radius);
+    width: max-content;
+    gap: 50px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+}
+
+.speaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.speaker-btn{
+    font-family: var(--font-main);
+    font-weight: 600;
+    padding: 10px 7px;
+    cursor: pointer;
+    background-color: inherit;
+    border: none;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.speaker-btn::before{
+    content: "";
+    height: 3px;
+    width: 0px;
+    background-color: var(--font-ink-alt);
+    display: inline-block;
+    position: absolute;
+    top: 33px;
+    left: -1px;
+    transition: width 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+.speaker-btn:hover::before{
+    width: 100%;
+}
+
+/* class to keep the one selected colored */
+.active{
+    color: var(--font-ink-alt);
+}
+.active::before{
+    width: 100%;
+}
+
+/*to swap the section*/
+.speakers-show{
+    display: grid !important;
+}
+
+#all-speakers{
+    width: 100%;
+}
+
+.grid-speakers {
+    /* did this for hiding the other sections */
+    width: 100%;
+    display: none;  
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.speaker-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    margin: 0;
+    padding: 0;
+    transition: all 100ms linear;
+    width: 100%;
+    height: 100%;
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 35px rgba(0, 0, 0, .2);
+}
+
+.speaker-img {
+    width: 100%;
+}
+
+.speaker-img img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-start-end-radius: var(--border-radius);
+    border-start-start-radius: var(--border-radius);
+}
+
+.speaker-text p {
+    
+    font-size: 16px;
+    margin: 0;
+    padding: 3px;
+    font-weight: 600;
+    color: var(--font-ink-head);
+}
+
+/* responsive grid for speakers */
+@media (max-width : 1180px) {
+    .grid-speakers {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width : 1000px) {
+    .grid-speakers {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width : 750px) {
+    .grid-speakers {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width : 550px) {
+    .grid-speakers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width : 950px) {
+    .speacker-navbar{
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 55px;
+        padding: 10px 50px;
+    }
+}
+

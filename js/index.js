@@ -162,7 +162,7 @@ const counters = document.querySelectorAll(".counter .target");
 const counterContainer = document.querySelector(".counter-up")
 const duration = 2000; // ms
 
-function animate(counter){
+function animate(counter) {
     const targetValue = Number(counter.getAttribute("data-target"));
     let startTime = null;
 
@@ -188,6 +188,32 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(entry.target);
         }
     });
-}, {threshold: 0.3});
+}, { threshold: 0.3 });
 
 observer.observe(counterContainer);
+
+
+//speaker section navbar swaping
+const buttons = document.querySelectorAll(".speaker-btn");
+const allSection = document.querySelectorAll(".grid-speakers");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        swapingSections(button);
+    });
+});
+
+function swapingSections(button) {
+    if (button.classList.contains("active")) {
+        const targetId = button.getAttribute("data-target");
+        allSection.forEach(section => {
+            let sectionId = section.id;
+            if(sectionId === targetId){
+                allSection.forEach((sec) => sec.classList.remove("speakers-show"));
+                section.classList.add("speakers-show");
+            }         
+        });
+    }
+}
