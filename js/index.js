@@ -259,7 +259,8 @@ function openPDF(path) {
     pdfContainer.classList.add("loading");
     pdfFrame.setAttribute("src", `${path}${config}`);
     pdfFrame.onload = () => {
-        setTimeout(removeLoader, 2000);
+        // setTimeout(removeLoader, 2000);
+        removeLoader();
     };
 
     function removeLoader(){
