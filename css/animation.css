@@ -133,79 +133,129 @@
 }
 
 @media (max-width: 720px) {
-  .element{
+  .element {
     font-size: 28px;
   }
 }
 
 @media (max-width: 480px) {
-  .element{
+  .element {
     font-size: 24px;
   }
 }
 
 
 /* ================animation for popop================ */
-.popup-container{
-    opacity: 0;
-    transform: scale(0.7);
+.popup-container {
+  opacity: 0;
+  transform: scale(0.7);
 }
 
 @keyframes popup-show {
-    0% {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .ani-popup-show {
-    animation: popup-show 600ms ease forwards;
+  animation: popup-show 600ms ease forwards;
 }
 
 @keyframes popup-remove {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0.7);
-    }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
 }
+
 .ani-popup-remove {
-    animation: popup-remove 600ms ease forwards;
+  animation: popup-remove 600ms ease forwards;
 }
 
 
 /* for black overlay */
-.live-popup{
-    opacity: 0;
+.live-popup {
+  opacity: 0;
 }
 
 @keyframes overlay-show {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
+
 .ani-overlay-show {
-    animation: overlay-show 300ms ease forwards;
+  animation: overlay-show 300ms ease forwards;
 }
 
 @keyframes overlay-remove {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
+
 .ani-overlay-remove {
-    animation: overlay-remove 300ms ease forwards;
+  animation: overlay-remove 300ms ease forwards;
+}
+
+
+/* //loading spinner */
+/* Loading Spinner Styles */
+.event-pdf.loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--font-ink-alt);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10;
+}
+
+.event-pdf.loading::after {
+  content: 'Loading PDF...';
+  position: absolute;
+  top: calc(50% + 40px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--font-ink-main);
+  font-size: 14px;
+  z-index: 10;
+}
+
+.event-pdf.loading iframe {
+  opacity: 0.3;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

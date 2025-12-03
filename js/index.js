@@ -235,20 +235,34 @@ performanceCard.forEach(card => {
 // schedule section buttons state change
 const scBtn = document.querySelectorAll(".event-btn");
 const pdfFrame = document.querySelector("#schedule-pdf iframe");
+const pdfContainer = document.getElementById("schedule-pdf");
 
 scBtn.forEach(button => {
     button.addEventListener("click", (e) => {
         e.preventDefault();
-        scBtn.forEach(btn => btn.classList.remove("active-btn"));  
+        scBtn.forEach(btn => btn.classList.remove("active-btn"));
         button.classList.add("active-btn");
         const path = button.getAttribute("data-target");
         openPDF(path);
     });
 });
 
-function openPDF(path){
-    const config = "#toolbar=0&navpanes=0&scrollbar=0";
-    const link =`${path+config}`;
-    pdfFrame.setAttribute("src",link);
-}
+// function openPDF(path) {
+//     const config = "#toolbar=0&navpanes=0&scrollbar=0";
+//     pdfFrame.setAttribute("src", "");
+//     const link = `${path + config}`;
+//     pdfFrame.setAttribute("src", link);
+// }
 
+function openPDF(path) {
+    const config = "#toolbar=0&navpanes=0&scrollbar=0";
+    pdfContainer.classList.add("loading");
+    pdfFrame.setAttribute("src", `${path}${config}`);
+    pdfFrame.onload = () => {
+        setTimeout(removeLoader, 2000);
+    };
+
+    function removeLoader(){
+        pdfContainer.classList.remove("loading");
+    }
+}
