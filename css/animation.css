@@ -218,7 +218,7 @@
 }
 
 
-/* //loading spinner */
+/* ================loading spinner================ */
 /* Loading Spinner Styles */
 .event-pdf.loading::before {
   content: '';
@@ -229,7 +229,7 @@
   width: 50px;
   height: 50px;
   border: 5px solid #f3f3f3;
-  border-top: 5px solid var(--font-ink-alt);
+  border-top: 5px solid var(--color-alt);
   border-radius: 50%;
   animation: spin 1s linear infinite;
   z-index: 10;
@@ -241,13 +241,13 @@
   top: calc(50% + 40px);
   left: 50%;
   transform: translateX(-50%);
-  color: var(--font-ink-main);
-  font-size: 14px;
+  color: var(--font-ink-head);
+  font-size: 16px;
   z-index: 10;
 }
 
 .event-pdf.loading iframe {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 @keyframes spin {

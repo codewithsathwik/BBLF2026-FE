@@ -69,9 +69,9 @@ section {
     color: var(--font-ink-main);
 }
 
-
-
-
+hr{
+    margin: 0;
+}
 
 /* ================top-nav================  */
 .top-nav {
@@ -283,10 +283,6 @@ header {
     color: var(--font-ink-main);
     max-width: 300px;
     font-weight: 600;
-    /* background-color: var(--color-alt);
-    color: white;
-    border-radius: 10px;
-    box-shadow: var(--shadow); */
 }
 
 .part {
@@ -298,7 +294,6 @@ header {
 .live-embed {
     overflow: hidden;
     background: linear-gradient(135deg, #1a0a0f 0%, #2d1b26 50%, #1f0d1a 100%);
-    /* min-height: 100vh; */
     position: relative;
 }
 
@@ -314,7 +309,6 @@ header {
 
 .live-container {
     position: relative;
-    /* background-color: var(--font-ink-main); */
     z-index: 5;
 }
 
@@ -331,7 +325,6 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    /* background-color: #0B4968; */
 }
 
 
@@ -791,14 +784,15 @@ header {
 
 .event-pdf{
      position: relative;
+    
 }
 
 .event-pdf iframe {
-    /* background-color: white; */
     width: 100%;
     height: 520px;
     border-radius: 10px;
     margin-bottom: 20px;
+    transition: opacity 0.5s ease;
 }
 
 .event-sc-btn{
