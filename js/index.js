@@ -229,3 +229,26 @@ performanceCard.forEach(card => {
         card.classList.add("performance-rev");
     i++;
 });
+
+
+
+// schedule section buttons state change
+const scBtn = document.querySelectorAll(".event-btn");
+const pdfFrame = document.querySelector("#schedule-pdf iframe");
+
+scBtn.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+        scBtn.forEach(btn => btn.classList.remove("active-btn"));  
+        button.classList.add("active-btn");
+        const path = button.getAttribute("data-target");
+        openPDF(path);
+    });
+});
+
+function openPDF(path){
+    const config = "#toolbar=0&navpanes=0&scrollbar=0";
+    const link =`${path+config}`;
+    pdfFrame.setAttribute("src",link);
+}
+

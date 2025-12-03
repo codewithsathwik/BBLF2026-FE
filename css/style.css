@@ -59,14 +59,17 @@ section {
     padding: 7px 12px;
     border-radius: var(--border-radius);
     color: white;
-    transition: all 300ms ease;
+    transition: all 300ms linear;
     font-size: 16px !important;
+    cursor: pointer;
 }
 
 .btn:hover {
     background-color: var(--font-ink-alt);
     color: var(--font-ink-main);
 }
+
+
 
 
 
@@ -766,7 +769,55 @@ header {
         padding: 10px;
     }
 
-    .performance-st, .performance-rev  {
+    .performance-st,
+    .performance-rev {
         grid-template-areas: "img" "txt";
     }
+}
+
+
+/* ================event schedule section================ */
+.event-schedule {
+    background-color: var(--color-primary);
+}
+
+.event h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: var(--font-ink-main);
+    text-align: center;
+}
+
+.event-pdf iframe {
+    background-color: white;
+    width: 100%;
+    height: 520px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.event-sc-btn{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: var(--font-main);
+    margin-bottom: 10px;
+}
+         
+.event-btn, .event-dw-btn{
+    border: none;
+    font-family: var(--font-main);
+}
+
+.event-btn:hover{
+    background-color: var(--color-alt);
+    color: white;
+}
+
+.active-btn{
+    background-color: var(--font-ink-alt) !important;
 }
