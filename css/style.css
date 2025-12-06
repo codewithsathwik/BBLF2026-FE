@@ -12,6 +12,7 @@
 
     --border-radius: 10px;
     --shadow: 0 10px 30px rgba(0, 0, 0, .2);
+    --shadow-2: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -630,7 +631,7 @@ header {
     transition: all 100ms linear;
     width: 100%;
     height: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-2);
 }
 
 .speaker-card:hover {
@@ -712,7 +713,7 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-2);
 }
 
 .performance-st {
@@ -871,7 +872,7 @@ header {
     margin: 0;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-2);
 }
 
 .partners-card-special {
@@ -887,7 +888,7 @@ header {
 
 .grid-special {
     width: 100%;
-    padding: 0 ;
+    padding: 0;
 }
 
 .partners-grid img {
@@ -910,18 +911,23 @@ header {
 @media (max-width : 550px) {
 
     .partners-grid,
-    .grid-title-partner, .grid-special {
+    .grid-title-partner,
+    .grid-special {
         grid-template-columns: 1fr !important;
     }
+
     .grid-special {
         padding: 10px;
     }
+
     .partner-card {
         padding: 14px 16px;
     }
+
     .partner-card img {
         max-height: 50px;
     }
+
     .grid-title-partner img {
         max-height: 100px;
     }
@@ -929,6 +935,163 @@ header {
 
 
 /* ================Archive for old edition of events================ */
-.old-archives{
+.old-archives {
     background-color: var(--color-primary);
+}
+
+.old-archives h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: var(--font-ink-main);
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery h3,
+.video-gallary h3 {
+    font-size: 19px;
+    color: var(--font-ink-head);
+    text-align: center;
+}
+
+.photo-galary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 100px;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.photo-card {
+    width: 100%;
+    padding: 7px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-2);
+    /* overflow: hidden; */
+}
+
+.photo-card img {
+    border-radius: var(--border-radius);
+    aspect-ratio: 4/3;
+    width: auto;
+    height: auto;
+    /* max-height: 200px; */
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* force to 1 colums in smaller width */
+@media (max-width : 1000px) {
+    .photo-galary {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .photo-card img {
+        max-height: 250px;
+    }
+}
+
+@media (max-width : 550px) {
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        max-height: 200px;
+    }
+}
+
+/* video gallery in archive section */
+.video-gallary {
+    margin-top: 50px;
+}
+
+.video-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-iframe iframe {
+    width: 85%;
+    height: 420px;
+    border-radius: var(--border-radius);
+}
+
+/* slider */
+.playlist-slider {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Sliders Wrapper */
+.sliders {
+    display: flex;
+    gap: 20px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.sliders::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera - Hide scrollbar */
+}
+
+.play-card {
+    background-color: white;
+    padding: 7px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+}
+
+.play-card img {
+    width: auto;
+    height: auto;
+    max-height: 120px;
+    border-radius: inherit;
+    transition: all 300ms ease;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    object-position: center;
+}
+
+.active-slide{
+    background-color: var(--font-ink-alt);
+}
+
+.next, .prev{
+    background-color: white;
+    font-size: 25px;
+    color: var(--color-alt);
+    border-radius: 50%;
+    border: 3px solid var(--color-alt);
 }
