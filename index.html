@@ -35,8 +35,8 @@
             </div>
         </div>
     </section>
-    <!-- top bar end -->
 
+    <!-- navigation bar -->
     <header aria-label="Naviagtion">
         <div class="container nav-bar">
             <a href="/">
@@ -50,8 +50,8 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
                 <a href="#partners" class="nav-link">Our Partners</a>
-                <a href="#" class="nav-link">Schedule</a>
                 <a href="" class="nav-link">Friends of Festival</a>
                 <a href="" class="nav-link">Contact</a>
                 <a href="" class="btn">Register</a>
@@ -249,7 +249,7 @@
 
 
     <!-- speakers section form (DB) -->
-    <section class="speaker-section" id="speakers">
+    <section class="speaker-section" id="speakers" aria-live="polite">
         <div class="container speaker-container">
             <h2>Speakers</h2>
             <!-- nav-bar for speakers -->
@@ -474,28 +474,357 @@
     <hr>
 
     <!-- evnet schedule section -->
-    <section class="event-schedule">
+    <section class="event-schedule" id="schedule">
         <div class="container event">
             <h2>Event Schedule</h2>
             <div class="event-sc-btn">
-                <button class="btn event-btn active-btn" data-target="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf">Day 1</button>
-                <button class="btn event-btn" data-target="/assets/uploads/schedule/DAY-2-BBLF-2025-SCHEDULE.pdf">Day 2</button>
-                <button class="btn event-btn" data-target="/assets/uploads/schedule/DAY-3-BBLF-2025-SCHEDULE.pdf">Day 3</button>
-                <button class="btn event-btn" data-target="/assets/uploads/schedule/PERF-BBLF-2025-SCHEDULE.pdf">Performances</button>
-                <button class="btn event-btn" data-target="/assets/uploads/schedule/BBLF_2025_SCHEDULE.pdf">Full Schedule</button>
+                <button class="btn event-btn active-btn"
+                    data-target="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf">Day 1</button>
+                <button class="btn event-btn" data-target="/assets/uploads/schedule/DAY-2-BBLF-2025-SCHEDULE.pdf">Day
+                    2</button>
+                <button class="btn event-btn" data-target="/assets/uploads/schedule/DAY-3-BBLF-2025-SCHEDULE.pdf">Day
+                    3</button>
+                <button class="btn event-btn"
+                    data-target="/assets/uploads/schedule/PERF-BBLF-2025-SCHEDULE.pdf">Performances</button>
+                <button class="btn event-btn" data-target="/assets/uploads/schedule/BBLF_2025_SCHEDULE.pdf">Full
+                    Schedule</button>
             </div>
 
             <div class="event-pdf" id="schedule-pdf">
-                <iframe
-                    src="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                <iframe src="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf#toolbar=0&navpanes=0&scrollbar=0"
                     title="BBLF 2025 Schedule">
                 </iframe>
             </div>
 
-            <div class="event-sc-btn">
-                <a href="/assets/uploads/schedule/BBLF_2025_SCHEDULE.pdf" class="btn event-dw-btn" download target="_blank" rel="noopener">Download Full Schedule</a>
+            <div class="event-sc-dw-btn">
+                <a href="/assets/uploads/schedule/BBLF_2025_SCHEDULE.pdf" class="btn event-dw-btn" download
+                    target="_blank" rel="noopener">Download Full Schedule</a>
             </div>
         </div>
+    </section>
+
+    <hr>
+
+    <section id="sponsors" class="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+
+            <h3>Title Partner</h3>
+            <div class="partners-grid  grid-title-partner">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-manipal4.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Platinum Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Gold Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Associate Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Performance Partner</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Session Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-jsw.webp" alt="" loading="lazy">
+                </a>
+                
+            </div>
+
+            <h3>Print Media Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Print Media Partners</h3>
+            <div class="partners-grid "> 
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Radio and Digiital Partner</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Radio and Digiital Partner</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Magazine Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+            </div>
+
+            <h3>Book Stall Partners</h3>
+            <div class="partners-grid ">
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+
+
+            </div>
+
+            <div class="partners-grid partners-grid-special">
+                <div class="partners-card-special">
+                    <h3>Event Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Venue Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Print Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Merchandise Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Design Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>3D Print Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Festival Kit Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Hospitality Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>International LitFest Partner</h3>
+                    <div class="partners-grid">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="partners-card-special">
+                    <h3>Travel Partner</h3>
+                    <div class="partners-grid ">
+                        <a href="" class="partners-card">
+                            <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>Institutional Partners</h3>
+            <div class="partners-grid ">
+
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+                <a href="" class="partners-card">
+                    <img src="assets/uploads/sponsers/logo-bharathiya.webp" alt="" loading="lazy">
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        
     </section>
 
     <script src="js/index.js"></script>

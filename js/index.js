@@ -218,7 +218,7 @@ function swapingSections(button) {
     }
 }
 
-// to arrangthe the icons in the performance Grid
+// ================to arrangthe the icons in the performance Grid================
 const performanceCard = document.querySelectorAll(".performance");
 let i = 1, n = performanceCard.length;
 
@@ -231,8 +231,7 @@ performanceCard.forEach(card => {
 });
 
 
-
-// schedule section buttons state change
+// ================schedule section buttons state change================
 const scBtn = document.querySelectorAll(".event-btn");
 const pdfFrame = document.querySelector("#schedule-pdf iframe");
 const pdfContainer = document.getElementById("schedule-pdf");

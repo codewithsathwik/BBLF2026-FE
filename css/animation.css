@@ -238,7 +238,7 @@
 .event-pdf.loading::after {
   content: 'Loading PDF...';
   position: absolute;
-  top: calc(50% + 40px);
+  top: calc(50% + 50px);
   left: 50%;
   transform: translateX(-50%);
   color: var(--font-ink-head);
