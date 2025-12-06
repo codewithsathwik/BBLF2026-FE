@@ -895,7 +895,7 @@ header {
     grid-template-columns: repeat(auto-fit, 300px) !important;
 }
 
-.grid-sponser-title img {
+.grid-title-partner img {
     max-height: 200px;
     width: 100%;
 }
