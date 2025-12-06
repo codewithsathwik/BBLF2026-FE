@@ -211,8 +211,12 @@ function swapingSections(button) {
         allSection.forEach(section => {
             let sectionId = section.id;
             if (sectionId === targetId) {
-                allSection.forEach((sec) => sec.classList.remove("speakers-show"));
+                allSection.forEach((sec) =>{ 
+                    sec.classList.remove("speakers-show");
+                    sec.classList.remove("slide-speaker");
+                });
                 section.classList.add("speakers-show");
+                section.classList.add("slide-speaker");
             }
         });
     }

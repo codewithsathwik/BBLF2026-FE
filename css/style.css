@@ -885,7 +885,7 @@ header {
     width: 100%;
 }
 
-.grid-special{
+.grid-special {
     width: 100%;
     padding: 0;
 }
@@ -908,18 +908,21 @@ header {
 
 /*for smaller logos on mobile screen */
 @media (max-width : 550px) {
-    .partners-grid, .grid-title-partner{
+
+    .partners-grid,
+    .grid-title-partner {
         grid-template-columns: 1fr !important;
     }
+
     .partner-card {
         padding: 14px 16px;
     }
 
-    .partner-card img{
-        max-height: 50px ;
+    .partner-card img {
+        max-height: 50px;
     }
 
     .grid-title-partner img {
-    max-height: 100px;
+        max-height: 100px;
     }
 }

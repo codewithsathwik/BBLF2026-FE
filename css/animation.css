@@ -259,3 +259,25 @@
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+
+/* animation for changing the section in speaker section */
+@keyframes slide-on-change {
+  0% {
+    transform: translateY(-35px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-speaker{
+  animation: slide-on-change 0.5s ease 0s 1 normal forwards;
+}
+
+.speaker-acc{
+  margin-top: 30px ;
+}
