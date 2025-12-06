@@ -887,7 +887,7 @@ header {
 
 .grid-special {
     width: 100%;
-    padding: 0;
+    padding: 0 ;
 }
 
 .partners-grid img {
@@ -910,19 +910,25 @@ header {
 @media (max-width : 550px) {
 
     .partners-grid,
-    .grid-title-partner {
+    .grid-title-partner, .grid-special {
         grid-template-columns: 1fr !important;
     }
-
+    .grid-special {
+        padding: 10px;
+    }
     .partner-card {
         padding: 14px 16px;
     }
-
     .partner-card img {
         max-height: 50px;
     }
-
     .grid-title-partner img {
         max-height: 100px;
     }
+}
+
+
+/* ================Archive for old edition of events================ */
+.old-archives{
+    background-color: var(--color-primary);
 }
