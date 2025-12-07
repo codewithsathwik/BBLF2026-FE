@@ -334,3 +334,113 @@ prevBtn.addEventListener("click", () => {
 // console.log(getYouTubeTitle("https://www.youtube.com/embed/GenHXHOSUqc"));
 
 
+const cards = document.querySelectorAll('.test-card');
+const cardsContainer = document.querySelector('.test-cards');
+const slideButtonContainer = document.querySelector('.test-slide-btn');
+let currentIndex = 0;
+let autoSlideInterval;
+let button = [];
+
+// Generate buttons dynamically based on number of cards
+function generateButtons() {
+    slideButtonContainer.innerHTML = ''; // Clear existing buttons
+    cards.forEach((card, index) => {
+        const btn = document.createElement('div');
+        btn.classList.add('test-btn');
+        btn.setAttribute('data-index', index);
+        if (index === 0) {
+            btn.classList.add('active-test');
+        }
+        slideButtonContainer.appendChild(btn);
+    });
+    button = document.querySelectorAll('.test-btn');
+    attachButtonEvents();
+}
+
+function slideToIndex(index) {
+    // Calculate the translation considering both card width and gap
+    const cardWidth = cards[index].offsetWidth;
+    const gap = 55; // Match the CSS gap value
+    const translateAmount = index * (cardWidth + gap);
+
+    // Update card positions
+    cards.forEach((card) => {
+        card.style.transform = `translateX(-${translateAmount}px)`;
+    });
+
+    // Update active button
+    button.forEach((btn, i) => {
+        if (i === index) {
+            btn.classList.add('active-test');
+        } else {
+            btn.classList.remove('active-test');
+        }
+    });
+    currentIndex = index;
+}
+
+// Button click events
+function attachButtonEvents() {
+    button.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const index = parseInt(btn.getAttribute('data-index'));
+            slideToIndex(index);
+            resetAutoSlide();
+        });
+    });
+}
+
+// Auto-slide functionality
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % cards.length;
+        slideToIndex(nextIndex);
+    }, 6000);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+// Swipe functionality for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+cardsContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+cardsContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0 && currentIndex < cards.length - 1) {
+            // Swipe left - next slide
+            slideToIndex(currentIndex + 1);
+        } else if (diff < 0 && currentIndex > 0) {
+            // Swipe right - previous slide
+            slideToIndex(currentIndex - 1);
+        }
+        resetAutoSlide();
+    }
+}
+
+// Initialize
+generateButtons();
+startAutoSlide();
+
+// Pause auto-slide on hover
+cardsContainer.addEventListener('mouseenter', () => {
+    clearInterval(autoSlideInterval);
+});
+
+cardsContainer.addEventListener('mouseleave', () => {
+    startAutoSlide();
+});

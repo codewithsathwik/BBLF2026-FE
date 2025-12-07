@@ -1133,7 +1133,191 @@ header {
         display: none;
     }
 
-    .play-card img{
+    .play-card img {
         max-height: 100px;
+    }
+}
+
+
+
+/* testimonials section */
+.testimonials {
+    background-color: var(--color-primary);
+}
+
+.test h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: var(--font-ink-main);
+    text-align: center;
+}
+
+.test-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 25px;
+    /* height: 800px; */
+}
+
+.test-head {
+    /* background-color: #0B4968; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* padding: 15px; */
+    padding-left: 30px !important;
+}
+
+.test-head h1 {
+    font-size: 30px;
+    font-family: var(--font-alt);
+    color: var(--font-ink-main);
+    line-height: 1.6;
+}
+
+.test-cards {
+    /* background-color: var(--color-alt); */
+    position: relative;
+    padding: 50px 30px;
+    display: flex;
+    /* justify-content: center; */
+    gap: 55px;
+    overflow: hidden;
+}
+
+.test-card {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    background-color: white;
+    justify-content: space-around;
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-2);
+    transition: all 300ms ease;
+}
+
+.test-quote-image {
+    position: absolute;
+    border-radius: 50%;
+    width: 60px;
+    top: -25px;
+    left: -25px;
+    box-shadow: var(--shadow-2);
+}
+
+.test-author,
+.test-text {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    padding: 20px;
+    box-shadow: var(--shadow-2);
+    border-radius: var(--border-radius);
+}
+
+.test-author .test-img {
+    width: 90px;
+    aspect-ratio: 1/1;
+    background-color: #0B4968;
+    border-radius: 50%;
+}
+
+.test-author .test-img img {
+    width: 100%;
+    border-radius: inherit;
+    aspect-ratio: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-author .test-name p {
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    color: var(--font-ink-head);
+    font-weight: 600;
+}
+
+.test-text .test-heading h2 {
+    font-size: 24px;
+}
+
+.test-text .test-paragraph p {
+    font-size: 14px;
+    text-align: center;
+    color: var(--font-ink-head);
+    padding: 0;
+}
+
+
+/* //slider down btn  */
+.test-slide-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-btn {
+    width: 10px;
+    height: 10px;
+    background-color: var(--font-ink-main);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.active-test {
+    width: 20px !important;
+    border-radius: 39%;
+}
+
+/* force the containers to shift for smaller screen */
+@media (max-width : 920px) {
+    .test-container {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .test-head h1 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    .test-author,
+    .test-text {
+        padding: 5px 10px;
+    }
+
+    .test-card {
+        gap: 15px;
+    }
+}
+
+@media (max-width : 620px) {
+    .test-head h1 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    .test-card {
+        grid-template-columns: 1fr;
+        padding: 10px;
     }
 }
