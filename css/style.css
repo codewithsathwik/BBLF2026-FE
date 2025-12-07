@@ -1034,6 +1034,7 @@ header {
     aspect-ratio: 16/9;
     height: 420px;
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 /* slider */
