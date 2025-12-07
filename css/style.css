@@ -1308,6 +1308,11 @@ header {
     .test-card {
         gap: 15px;
     }
+
+    .test-quote-image{
+        width: 50px;
+        
+    }
 }
 
 @media (max-width : 620px) {
@@ -1319,5 +1324,15 @@ header {
     .test-card {
         grid-template-columns: 1fr;
         padding: 10px;
+    }
+
+    .test-cards{
+        padding: 30px 10px;
+    }
+
+    .test-quote-image{
+        width: 45px;
+        top: -10px;
+        left: -10px;
     }
 }
