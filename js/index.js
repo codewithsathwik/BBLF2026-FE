@@ -287,7 +287,7 @@ const maxOffset = totalWidth - visibleWidth;
 
 let offset = 0;
 
-const defaultSize = 150; // in px 
+const defaultSize = 250; // in px 
 
 playCards.forEach(card => {
     card.addEventListener("click", () => {
