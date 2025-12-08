@@ -334,113 +334,215 @@ prevBtn.addEventListener("click", () => {
 // console.log(getYouTubeTitle("https://www.youtube.com/embed/GenHXHOSUqc"));
 
 
+
+// // Swipe functionality for mobile
+// let touchStartX = 0;
+// let touchEndX = 0;
+
+// cardsContainer.addEventListener('touchstart', (e) => {
+//     touchStartX = e.changedTouches[0].screenX;
+// });
+
+// cardsContainer.addEventListener('touchend', (e) => {
+//     touchEndX = e.changedTouches[0].screenX;
+//     handleSwipe();
+// });
+
+// function handleSwipe() {
+//     const swipeThreshold = 50;
+//     const diff = touchStartX - touchEndX;
+
+//     if (Math.abs(diff) > swipeThreshold) {
+//         if (diff > 0 && currentIndex < cards.length - 1) {
+//             // Swipe left - next slide
+//             slideToIndex(currentIndex + 1);
+//         } else if (diff < 0 && currentIndex > 0) {
+//             // Swipe right - previous slide
+//             slideToIndex(currentIndex - 1);
+//         }
+//         resetAutoSlide();
+//     }
+// }
+
+
+//================Slider for the testimonial section================
 const cards = document.querySelectorAll('.test-card');
 const cardsContainer = document.querySelector('.test-cards');
 const slideButtonContainer = document.querySelector('.test-slide-btn');
+const gap = 55; //in px , gap betwwen two cards
+let button = [];
 let currentIndex = 0;
 let autoSlideInterval;
-let button = [];
 
-// Generate buttons dynamically based on number of cards
 function generateButtons() {
-    slideButtonContainer.innerHTML = ''; // Clear existing buttons
-    cards.forEach((card, index) => {
-        const btn = document.createElement('div');
-        btn.classList.add('test-btn');
-        btn.setAttribute('data-index', index);
-        if (index === 0) {
-            btn.classList.add('active-test');
+    slideButtonContainer.innerHTML = "";
+    let length = cards.length;
+    for (let i = 0; i < length; i++) {
+        let btn = document.createElement("div");
+        btn.classList.add("test-btn");
+        btn.setAttribute("data-index", i);
+        if (i === 0) {
+            btn.classList.add("active-test");
         }
-        slideButtonContainer.appendChild(btn);
-    });
-    button = document.querySelectorAll('.test-btn');
-    attachButtonEvents();
+        slideButtonContainer.append(btn);
+    }
+    button = document.querySelectorAll(".test-btn");
+    attacthButtonsEvents();
 }
 
-function slideToIndex(index) {
-    // Calculate the translation considering both card width and gap
+function attacthButtonsEvents() {
+    button.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const index = Number(btn.getAttribute("data-index"));
+            slideToCard(index);
+            resetAutoSlide();
+        });
+    })
+}
+
+function slideToCard(index) {
     const cardWidth = cards[index].offsetWidth;
-    const gap = 55; // Match the CSS gap value
-    const translateAmount = index * (cardWidth + gap);
 
-    // Update card positions
+    const slideLength = index * (cardWidth + gap);
     cards.forEach((card) => {
-        card.style.transform = `translateX(-${translateAmount}px)`;
+        card.style.transform = `translateX(-${slideLength}px)`;
     });
-
-    // Update active button
     button.forEach((btn, i) => {
-        if (i === index) {
-            btn.classList.add('active-test');
+        if (index === i) {
+            btn.classList.add("active-test");
         } else {
-            btn.classList.remove('active-test');
+            btn.classList.remove("active-test");
         }
     });
     currentIndex = index;
 }
 
-// Button click events
-function attachButtonEvents() {
-    button.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const index = parseInt(btn.getAttribute('data-index'));
-            slideToIndex(index);
-            resetAutoSlide();
-        });
-    });
-}
-
-// Auto-slide functionality
-function startAutoSlide() {
+function autoSlide() {
     autoSlideInterval = setInterval(() => {
-        const nextIndex = (currentIndex + 1) % cards.length;
-        slideToIndex(nextIndex);
-    }, 6000);
+        nextIndex = (currentIndex + 1) % cards.length;
+        slideToCard(nextIndex);
+    }, 8000);
 }
 
 function resetAutoSlide() {
     clearInterval(autoSlideInterval);
-    startAutoSlide();
+    autoSlide();
 }
 
-// Swipe functionality for mobile
-let touchStartX = 0;
-let touchEndX = 0;
+cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+        clearInterval(autoSlideInterval);
+    });
 
+    card.addEventListener("mouseleave", () => {
+        autoSlide();
+    });
+})
+
+generateButtons();
+autoSlide();
+
+
+let touchStartX = 0; // Where finger touched screen
+let touchEndX = 0; // Where finger left screen
+let isDragging = false; // Are we currently dragging?
+let startTime = 0; // When the touch started
+let initialTranslate = 0; // Starting position before drag
+
+// When user starts touching
 cardsContainer.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
+    touchStartX = e.touches[0].clientX;
+    isDragging = true;
+    startTime = Date.now();
 
+    // Calculate initial translate position
+    const cardWidth = cards[0].offsetWidth;
+    initialTranslate = -(currentIndex * (cardWidth + gap));
+
+    // Stop auto-slide while swiping
+    clearInterval(autoSlideInterval);
+
+    // Disable transition for smooth dragging
+    cards.forEach(card => {
+        card.style.transition = 'none';
+    });
+}, { passive: true });
+
+// When user is dragging their finger
+cardsContainer.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+
+    // Prevent default scroll behavior
+    if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+        e.preventDefault();
+    }
+
+    const currentPosition = e.touches[0].clientX;
+    const dragDistance = currentPosition - touchStartX;
+
+    // Apply resistance at boundaries
+    let resistedDrag = dragDistance;
+    if ((currentIndex === 0 && dragDistance > 0) ||
+        (currentIndex === cards.length - 1 && dragDistance < 0)) {
+        resistedDrag = dragDistance * 0.3; // 30% resistance at edges
+    }
+
+    const newTranslate = initialTranslate + resistedDrag;
+
+    // Move cards with finger
+    cards.forEach((card) => {
+        card.style.transform = `translateX(${newTranslate}px)`;
+    });
+}, { passive: false });
+
+
+// When user stops touching
 cardsContainer.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    if (!isDragging) return;
+
+    isDragging = false;
+    touchEndX = e.changedTouches[0].clientX;
+
+    // Re-enable smooth transition
+    cards.forEach(card => {
+        card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    });
+
+    handleSwipe(); // Determine final position
+
+    // Resume auto-slide after a delay
+    setTimeout(() => {
+        autoSlide();
+    }, 500);
+}, { passive: true });
+
+// Prevent context menu on long press
+cardsContainer.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
 });
 
+// Check swipe direction and change slide
 function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
+    const swipeDistance = touchStartX - touchEndX;
+    const swipeTime = Date.now() - startTime;
+    const swipeSpeed = Math.abs(swipeDistance) / swipeTime; // pixels per millisecond
 
-    if (Math.abs(diff) > swipeThreshold) {
-        if (diff > 0 && currentIndex < cards.length - 1) {
-            // Swipe left - next slide
-            slideToIndex(currentIndex + 1);
-        } else if (diff < 0 && currentIndex > 0) {
-            // Swipe right - previous slide
-            slideToIndex(currentIndex - 1);
+    // Consider both distance and speed for better UX
+    const threshold = swipeSpeed > 0.5 ? 30 : 75; // Lower threshold for fast swipes
+
+    if (Math.abs(swipeDistance) > threshold) {
+        if (swipeDistance > 0 && currentIndex < cards.length - 1) {
+            // Swiped left → go to next slide
+            slideToCard(currentIndex + 1);
+        } else if (swipeDistance < 0 && currentIndex > 0) {
+            // Swiped right → go to previous slide
+            slideToCard(currentIndex - 1);
+        } else {
+            // At boundary, snap back
+            slideToCard(currentIndex);
         }
-        resetAutoSlide();
+    } else {
+        // Not enough swipe, return to current position
+        slideToCard(currentIndex);
     }
 }
-
-// Initialize
-generateButtons();
-startAutoSlide();
-
-// Pause auto-slide on hover
-cardsContainer.addEventListener('mouseenter', () => {
-    clearInterval(autoSlideInterval);
-});
-
-cardsContainer.addEventListener('mouseleave', () => {
-    startAutoSlide();
-});
