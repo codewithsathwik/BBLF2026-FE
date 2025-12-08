@@ -289,17 +289,31 @@ let offset = 0;
 
 const defaultSize = 250; // in px 
 
-playCards.forEach(card => {
+playCards.forEach(async (card, i) => {
+    let link = card.getAttribute("data-target");
+    getYouTubeTitle(link, card, i);
     card.addEventListener("click", () => {
         playCards.forEach(crd => crd.classList.remove("active-slide"));
         card.classList.add("active-slide");
-        let link = card.getAttribute("data-target");
-        changePlaylistSrc(link);
-    })
+        let title = card.querySelector("img").alt;
+        changePlaylistSrc(link, title);
+    });
 });
 
-function changePlaylistSrc(link) {
+
+function changePlaylistSrc(link, title) {
     playlistFrame.setAttribute("src", link);
+    playlistFrame.setAttribute("title", title);
+}
+
+function setThumbAlt(thumb, card, alt, i) {
+    let img = card.querySelector("img");
+    img.src = thumb;
+    img.setAttribute("alt", alt);
+    if(i === 0){
+        let link = card.getAttribute("data-target");
+        changePlaylistSrc(link, alt)
+    } 
 }
 
 function applyTransform() {
@@ -319,50 +333,19 @@ prevBtn.addEventListener("click", () => {
 });
 
 
-// function getYouTubeTitle(videoUrl) {
-//     const videoId = videoUrl.split('/embed/')[1].split('?')[0];
-//     const oembedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
+function getYouTubeTitle(link, card, i) {
+    const videoId = link.split('/embed/')[1].split('?')[0];
+    const oembedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}`;
+    const thumb = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
-//     fetch(oembedUrl)
-//         .then(response => response.json())
-//         .then(data => {
-//             return data.title;
-//         })
-//         .catch(error => console.error('Error:', error));
-// }
+    fetch(oembedUrl)
+        .then(response => response.json())
+        .then(data => {
+            setThumbAlt(thumb, card, data.title, i);
+        })
+        .catch(error => console.error('Error:', error));
+}
 
-// console.log(getYouTubeTitle("https://www.youtube.com/embed/GenHXHOSUqc"));
-
-
-
-// // Swipe functionality for mobile
-// let touchStartX = 0;
-// let touchEndX = 0;
-
-// cardsContainer.addEventListener('touchstart', (e) => {
-//     touchStartX = e.changedTouches[0].screenX;
-// });
-
-// cardsContainer.addEventListener('touchend', (e) => {
-//     touchEndX = e.changedTouches[0].screenX;
-//     handleSwipe();
-// });
-
-// function handleSwipe() {
-//     const swipeThreshold = 50;
-//     const diff = touchStartX - touchEndX;
-
-//     if (Math.abs(diff) > swipeThreshold) {
-//         if (diff > 0 && currentIndex < cards.length - 1) {
-//             // Swipe left - next slide
-//             slideToIndex(currentIndex + 1);
-//         } else if (diff < 0 && currentIndex > 0) {
-//             // Swipe right - previous slide
-//             slideToIndex(currentIndex - 1);
-//         }
-//         resetAutoSlide();
-//     }
-// }
 
 
 //================Slider for the testimonial section================
@@ -443,23 +426,28 @@ generateButtons();
 autoSlide();
 
 
+// mobile slider
 let touchStartX = 0; // Where finger touched screen
+let touchStartY = 0; // Vertical touch position
 let touchEndX = 0; // Where finger left screen
 let isDragging = false; // Are we currently dragging?
+let isHorizontalSwipe = null; // Track if swipe is horizontal or vertical
 let startTime = 0; // When the touch started
 let initialTranslate = 0; // Starting position before drag
 
 // When user starts touching
 cardsContainer.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
     isDragging = true;
+    isHorizontalSwipe = null; // Reset swipe direction
     startTime = Date.now();
 
     // Calculate initial translate position
     const cardWidth = cards[0].offsetWidth;
     initialTranslate = -(currentIndex * (cardWidth + gap));
 
-    // Stop auto-slide while swiping
+    // Stop auto-slide while touching
     clearInterval(autoSlideInterval);
 
     // Disable transition for smooth dragging
@@ -472,13 +460,28 @@ cardsContainer.addEventListener('touchstart', (e) => {
 cardsContainer.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
 
-    // Prevent default scroll behavior
-    if (Math.abs(e.touches[0].clientX - touchStartX) > 10) {
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+    const diffX = Math.abs(currentX - touchStartX);
+    const diffY = Math.abs(currentY - touchStartY);
+
+    // Determine swipe direction only once at the start
+    if (isHorizontalSwipe === null && (diffX > 5 || diffY > 5)) {
+        isHorizontalSwipe = diffX > diffY;
+    }
+
+    // Only handle horizontal swipes
+    if (isHorizontalSwipe === false) {
+        // This is a vertical scroll, don't interfere
+        return;
+    }
+
+    // Prevent default scroll behavior only for horizontal swipes
+    if (isHorizontalSwipe === true && diffX > 10) {
         e.preventDefault();
     }
 
-    const currentPosition = e.touches[0].clientX;
-    const dragDistance = currentPosition - touchStartX;
+    const dragDistance = currentX - touchStartX;
 
     // Apply resistance at boundaries
     let resistedDrag = dragDistance;
@@ -489,26 +492,38 @@ cardsContainer.addEventListener('touchmove', (e) => {
 
     const newTranslate = initialTranslate + resistedDrag;
 
-    // Move cards with finger
-    cards.forEach((card) => {
-        card.style.transform = `translateX(${newTranslate}px)`;
-    });
+    // Move cards with finger (only if horizontal swipe)
+    if (isHorizontalSwipe === true) {
+        cards.forEach((card) => {
+            card.style.transform = `translateX(${newTranslate}px)`;
+        });
+    }
 }, { passive: false });
-
 
 // When user stops touching
 cardsContainer.addEventListener('touchend', (e) => {
     if (!isDragging) return;
 
+    // Only process if it was a horizontal swipe
+    if (isHorizontalSwipe === true) {
+        touchEndX = e.changedTouches[0].clientX;
+
+        // Re-enable smooth transition
+        cards.forEach(card => {
+            card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+
+        handleSwipe(); // Determine final position
+    } else {
+        // Was vertical scroll, just reset transition
+        cards.forEach(card => {
+            card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+        slideToCard(currentIndex); // Stay at current position
+    }
+
     isDragging = false;
-    touchEndX = e.changedTouches[0].clientX;
-
-    // Re-enable smooth transition
-    cards.forEach(card => {
-        card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-    });
-
-    handleSwipe(); // Determine final position
+    isHorizontalSwipe = null;
 
     // Resume auto-slide after a delay
     setTimeout(() => {

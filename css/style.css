@@ -1086,7 +1086,7 @@ header {
     border-radius: inherit;
     transition: all 300ms ease;
     aspect-ratio: 16/9;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
 }
 
