@@ -310,10 +310,10 @@ function setThumbAlt(thumb, card, alt, i) {
     let img = card.querySelector("img");
     img.src = thumb;
     img.setAttribute("alt", alt);
-    if(i === 0){
+    if (i === 0) {
         let link = card.getAttribute("data-target");
         changePlaylistSrc(link, alt)
-    } 
+    }
 }
 
 function applyTransform() {
@@ -426,7 +426,7 @@ generateButtons();
 autoSlide();
 
 
-// mobile slider
+// mobile slider with touch and smooth effect
 let touchStartX = 0; // Where finger touched screen
 let touchStartY = 0; // Vertical touch position
 let touchEndX = 0; // Where finger left screen
@@ -435,64 +435,49 @@ let isHorizontalSwipe = null; // Track if swipe is horizontal or vertical
 let startTime = 0; // When the touch started
 let initialTranslate = 0; // Starting position before drag
 
-// When user starts touching
+
 cardsContainer.addEventListener('touchstart', (e) => {
+    // console.log(e);
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
     isDragging = true;
-    isHorizontalSwipe = null; // Reset swipe direction
+    isHorizontalSwipe = null;
     startTime = Date.now();
-
-    // Calculate initial translate position
     const cardWidth = cards[0].offsetWidth;
     initialTranslate = -(currentIndex * (cardWidth + gap));
-
-    // Stop auto-slide while touching
     clearInterval(autoSlideInterval);
-
-    // Disable transition for smooth dragging
     cards.forEach(card => {
         card.style.transition = 'none';
     });
 }, { passive: true });
 
-// When user is dragging their finger
+
+
 cardsContainer.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-
     const currentX = e.touches[0].clientX;
     const currentY = e.touches[0].clientY;
     const diffX = Math.abs(currentX - touchStartX);
     const diffY = Math.abs(currentY - touchStartY);
-
-    // Determine swipe direction only once at the start
     if (isHorizontalSwipe === null && (diffX > 5 || diffY > 5)) {
         isHorizontalSwipe = diffX > diffY;
     }
-
-    // Only handle horizontal swipes
     if (isHorizontalSwipe === false) {
-        // This is a vertical scroll, don't interfere
         return;
     }
-
-    // Prevent default scroll behavior only for horizontal swipes
     if (isHorizontalSwipe === true && diffX > 10) {
         e.preventDefault();
     }
 
     const dragDistance = currentX - touchStartX;
 
-    // Apply resistance at boundaries
     let resistedDrag = dragDistance;
     if ((currentIndex === 0 && dragDistance > 0) ||
         (currentIndex === cards.length - 1 && dragDistance < 0)) {
-        resistedDrag = dragDistance * 0.3; // 30% resistance at edges
+        resistedDrag = dragDistance * 0.3; // for stoping the overflow of drag at both the ends
     }
 
     const newTranslate = initialTranslate + resistedDrag;
-
-    // Move cards with finger (only if horizontal swipe)
     if (isHorizontalSwipe === true) {
         cards.forEach((card) => {
             card.style.transform = `translateX(${newTranslate}px)`;
@@ -500,51 +485,40 @@ cardsContainer.addEventListener('touchmove', (e) => {
     }
 }, { passive: false });
 
-// When user stops touching
+
 cardsContainer.addEventListener('touchend', (e) => {
     if (!isDragging) return;
-
-    // Only process if it was a horizontal swipe
     if (isHorizontalSwipe === true) {
         touchEndX = e.changedTouches[0].clientX;
-
-        // Re-enable smooth transition
         cards.forEach(card => {
             card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
-
-        handleSwipe(); // Determine final position
+        handleSwipe();
     } else {
-        // Was vertical scroll, just reset transition
         cards.forEach(card => {
             card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
-        slideToCard(currentIndex); // Stay at current position
+        slideToCard(currentIndex);
     }
-
     isDragging = false;
     isHorizontalSwipe = null;
-
-    // Resume auto-slide after a delay
     setTimeout(() => {
         autoSlide();
     }, 500);
 }, { passive: true });
 
-// Prevent context menu on long press
+
 cardsContainer.addEventListener('contextmenu', (e) => {
     e.preventDefault();
 });
 
-// Check swipe direction and change slide
 function handleSwipe() {
     const swipeDistance = touchStartX - touchEndX;
     const swipeTime = Date.now() - startTime;
     const swipeSpeed = Math.abs(swipeDistance) / swipeTime; // pixels per millisecond
-
     // Consider both distance and speed for better UX
-    const threshold = swipeSpeed > 0.5 ? 30 : 75; // Lower threshold for fast swipes
-
+    // Lower threshold for fast swipes
+    const threshold = swipeSpeed > 0.5 ? 30 : 75; 
     if (Math.abs(swipeDistance) > threshold) {
         if (swipeDistance > 0 && currentIndex < cards.length - 1) {
             // Swiped left → go to next slide
