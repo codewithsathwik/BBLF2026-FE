@@ -491,12 +491,12 @@ cardsContainer.addEventListener('touchend', (e) => {
     if (isHorizontalSwipe === true) {
         touchEndX = e.changedTouches[0].clientX;
         cards.forEach(card => {
-            card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            card.style.transition = 'all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
         handleSwipe();
     } else {
         cards.forEach(card => {
-            card.style.transition = 'transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            card.style.transition = 'all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         });
         slideToCard(currentIndex);
     }
