@@ -277,13 +277,15 @@ const playCards = document.querySelectorAll(".play-card");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 const playlistFrame = document.querySelector(".video-iframe iframe");
-const allCards = document.querySelector(".sliders")
+const allCards = document.querySelector(".sliders");
 
 
-const firstCard = playCards[0];
-const totalWidth = firstCard.parentElement.scrollWidth;
-const visibleWidth = firstCard.parentElement.clientWidth;
-const maxOffset = totalWidth - visibleWidth;
+let firstCard;
+let totalWidth;
+let visibleWidth;
+let maxOffset;
+
+
 
 let offset = 0;
 
@@ -317,20 +319,35 @@ function setThumbAlt(thumb, card, alt, i) {
 }
 
 function applyTransform() {
+    
+    console.log(totalWidth);
+    console.log(firstCard.parentElement);
+    console.log(visibleWidth);
+
+
     playCards.forEach(card => {
         card.style.transform = `translateX(-${offset}px)`;
     });
 }
 
 nextBtn.addEventListener("click", () => {
+    calculateOffsetWidth();
     offset = Math.min(offset + defaultSize, maxOffset);
     applyTransform();
 });
 
 prevBtn.addEventListener("click", () => {
+    calculateOffsetWidth();
     offset = Math.max(offset - defaultSize, 0);
     applyTransform();
 });
+
+function calculateOffsetWidth(){
+    firstCard = playCards[0];
+    totalWidth = firstCard.parentElement.scrollWidth;
+    visibleWidth = firstCard.parentElement.clientWidth;
+    maxOffset = totalWidth - visibleWidth;
+}
 
 
 function getYouTubeTitle(link, card, i) {
@@ -518,7 +535,7 @@ function handleSwipe() {
     const swipeSpeed = Math.abs(swipeDistance) / swipeTime; // pixels per millisecond
     // Consider both distance and speed for better UX
     // Lower threshold for fast swipes
-    const threshold = swipeSpeed > 0.5 ? 30 : 75; 
+    const threshold = swipeSpeed > 0.5 ? 30 : 75;
     if (Math.abs(swipeDistance) > threshold) {
         if (swipeDistance > 0 && currentIndex < cards.length - 1) {
             // Swiped left → go to next slide

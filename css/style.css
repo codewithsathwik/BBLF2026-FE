@@ -6,7 +6,7 @@
 
     --color-primary: #DDF2FD;
     --color-alt: #4AB2E6;
-    --color-alt2 : #F8F1E6D9;
+    --color-alt2: #F8F1E6D9;
     --font-ink-main: #0B4968;
     --font-ink-alt: #FF9F00;
     --font-ink-head: #222222;
@@ -1053,7 +1053,7 @@ header {
 .sliders {
     display: flex;
     gap: 20px;
-    overflow-x: scroll;
+    overflow: scroll;
     scroll-behavior: smooth;
     scrollbar-width: none;
     /* Firefox */
@@ -1330,6 +1330,7 @@ header {
     .test-card {
         grid-template-columns: 1fr;
         padding: 10px;
+        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
     }
 
     .test-cards {
@@ -1428,7 +1429,7 @@ header {
     background-position: center;
 }
 
-.venue-section h2{
+.venue-section h2 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 28px;
@@ -1443,7 +1444,7 @@ header {
     margin-top: 30px;
 }
 
-.venue-map{
+.venue-map {
     /* background-color: var(--color-alt2); */
     display: flex;
     justify-content: center;
@@ -1455,21 +1456,21 @@ header {
     border-radius: var(--border-radius);
 }
 
-.map{
+.map {
     width: 100%;
 }
 
-.venue-map .map iframe{
+.venue-map .map iframe {
     width: 100%;
     height: 450px;
     border-radius: var(--border-radius);
 }
 
-.venue-btn{
+.venue-btn {
     border-radius: 50px !important;
 }
 
-.venue-details{
+.venue-details {
     background-color: var(--color-alt2);
     border-radius: var(--border-radius);
     padding: 30px;
@@ -1481,25 +1482,27 @@ header {
 
 /* venue card */
 
-.venue-details h3{
+.venue-details h3 {
     margin: 0;
     color: var(--font-ink-main);
     text-align: center;
     font-size: 24px;
 }
-.venue-icon{
+
+.venue-icon {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
-.venue-icon img{
+
+.venue-icon img {
     width: 35px;
     height: 35px;
 }
 
-.venue-img  {
+.venue-img {
     max-width: 100%;
 }
 
@@ -1511,35 +1514,133 @@ header {
     box-shadow: var(--shadow);
 }
 
-.venue-text p{
+.venue-text p {
     font-size: 16px;
     text-align: center;
     color: var(--font-ink-head);
 }
 
 @media (max-width : 1100px) {
-    .venue-grid{
+    .venue-grid {
         grid-template-columns: 1fr;
     }
-    .venue-map{
+
+    .venue-map {
         padding: 0px 25px;
     }
 }
 
 @media (max-width : 700px) {
-    .venue-grid{
+    .venue-grid {
         grid-template-columns: 1fr;
     }
-    .venue-map{
+
+    .venue-map {
         padding: 0px 0px;
     }
 }
 
 @media (max-width : 550px) {
-    .venue-details{
+    .venue-details {
         padding: 15px;
     }
-    .venue-map .map iframe{
+
+    .venue-map .map iframe {
         height: 400px;
     }
+}
+
+/* =======================meadia section======================= */
+.media {
+    background-color: var(--color-primary);
+}
+
+.media-container h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: var(--font-ink-main);
+    text-align: center;
+}
+
+.media-prev,
+.media-next {
+    background-color: white;
+    border: 3px solid var(--color-alt);
+    background-color: white;
+    font-size: 25px;
+    color: var(--color-alt);
+    border: 3px solid var(--color-alt);
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-prev img,
+.media-next img {
+    width: 100%;
+}
+
+.media-next img {
+    transform: rotate(180deg);
+}
+
+/* card */
+.media-track{
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    overflow: scroll;
+    width: 100%;
+    height: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.media-slider{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.media-card{
+    box-sizing: border-box;
+    display: block;
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-2);
+}
+
+.media-img{
+    box-sizing: border-box;
+}
+
+.media-img img{
+    min-width: 250px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.media-details{
+    font-size: 16px;
+    color: var(--font-ink-head);
+}
+
+.media-link{
+    font-weight: 600;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.media-des{
+    margin: 10px 0px;
 }
