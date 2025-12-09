@@ -1534,3 +1534,12 @@ header {
         padding: 0px 0px;
     }
 }
+
+@media (max-width : 550px) {
+    .venue-details{
+        padding: 15px;
+    }
+    .venue-map .map iframe{
+        height: 400px;
+    }
+}
