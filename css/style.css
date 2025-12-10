@@ -4,6 +4,8 @@
     --font-main: "Poppins", serif;
     --font-alt: "Red Rose", serif;
 
+    --scroll-padding : 10px;        /*default*/
+
     --color-primary: #DDF2FD;
     --color-alt: #4AB2E6;
     --color-alt2: #F8F1E6D9;
@@ -19,6 +21,7 @@
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+    scroll-padding: var(--scroll-padding);
 }
 
 a {
@@ -932,7 +935,7 @@ header {
     }
 
     .grid-title-partner img {
-        max-height: 100px;
+        max-height: 150px;
     }
 }
 
@@ -1421,7 +1424,7 @@ header {
 }
 
 
-/* venue section */
+/* ================venue section================ */
 .venue-section {
     background: url("/assets/images/venue-bg.png");
     background-size: cover;
@@ -1668,7 +1671,7 @@ header {
     }
 }
 
-/* contact section */
+/* ================contact section================ */
 .contact {
     background-color: var(--color-primary);
 }
@@ -1756,7 +1759,7 @@ header {
     color: var(--font-ink-alt);
 }
 
-/* footer of the page */
+/* ================footer of the page================ */
 footer {
     padding: 30px 0px;
     background-color: var(--color-alt);

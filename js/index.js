@@ -549,10 +549,36 @@ function handleSwipe() {
 const mediaTrack = document.querySelector(".media-track");
 const mediaSlider = document.querySelector(".media-slider");
 
-function duplicateMediaTrack(){
+function duplicateMediaTrack() {
     const duplicateTrack = mediaTrack.cloneNode(true);
     duplicateTrack.classList.add("duplicate-media-track");
-    console.log(duplicateTrack);
     mediaSlider.appendChild(duplicateTrack);
 }
 duplicateMediaTrack();
+
+//================Scroll padding add dynamically, and smooth scrollig in intra pages================
+const headerHeight = document.querySelector("header").offsetHeight;
+const topBarHeight = document.querySelector(".top-nav").offsetHeight;
+let Scrollheight;
+
+function addScrollPadding(id) {
+    if (id === "home") {
+        Scrollheight = headerHeight + topBarHeight ;
+    } else {
+        Scrollheight = headerHeight - 5;
+    }
+    console.log(Scrollheight);
+    
+    document.documentElement.style.setProperty('--scroll-padding', `${Scrollheight}px`);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const id = anchor.getAttribute('href').slice(1);
+        addScrollPadding(id);
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+    });
+
+});

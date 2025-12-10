@@ -261,7 +261,7 @@
 }
 
 
-/* animation for changing the section in speaker section */
+/* ================animation for changing the section in speaker section================ */
 @keyframes slide-on-change {
   0% {
     transform: translateY(-35px);
