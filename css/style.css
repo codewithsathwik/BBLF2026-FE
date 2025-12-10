@@ -1605,7 +1605,7 @@ header {
     padding-right: 30px;
 }
 
-.media-slider:hover .media-track{
+.media-slider:hover .media-track {
     animation-play-state: paused;
 }
 
@@ -1629,7 +1629,7 @@ header {
     transition: all 300ms ease;
 }
 
-.media-card:hover{
+.media-card:hover {
     box-shadow: var(--shadow);
     transform: translateY(-10px);
 }
@@ -1656,13 +1656,118 @@ header {
     margin: 0;
     margin-top: 10px;
 }
+
 .media-des {
     margin: 10px 0px;
 }
 
 @media (max-width : 600px) {
-    .media-card{
+    .media-card {
         min-width: 270px;
         flex: 0 0 270px;
+    }
+}
+
+/* contact section */
+.contact {
+    background-color: var(--color-primary);
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-details,
+.brand-logo,
+.brand-social,
+.contact-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.brand-details {
+    gap: 20px;
+}
+
+.brand-details h3 {
+    font-size: 20px;
+    color: var(--font-ink-main);
+    margin: 20px 0px 0px;
+}
+
+.brand-logo {
+    width: 200px;
+}
+
+.brand-logo img {
+    width: 100%;
+}
+
+.brand-social {
+    flex-direction: row;
+    gap: 15px;
+}
+
+.brand-social img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.brand-social a {
+    padding: 0;
+    margin: 0;
+    transition: all 300ms ease;
+}
+
+.brand-social a:hover {
+    transform: scale(1.1);
+}
+
+/* contact address */
+.contact-details{
+    text-align: start;
+    gap: 15px;
+    align-items: end;
+}
+.contact-details h2{
+     margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: var(--font-ink-main);
+    text-align: center;
+}
+
+.contact-details p,.contact-details a{
+    margin: 0;
+    font-size: 16px;
+    color: var(--font-ink-head);
+    transition: all 300ms ease;
+}
+
+.contact-details p:hover,.contact-details a:hover{
+    color: var(--font-ink-alt);
+}
+
+/* forcing to wrap in the columsn for mobile display */
+@media (max-width : 700px) {
+    .contact-container{
+        flex-direction: column-reverse;
+        gap: 60px;
+    }
+    .contact-details{
+        align-items: center;
+        gap: 10px;
+    }
+    .brand-details h3{
+        margin: 5px 0px 0px;
+    }
+    .brand-social img{
+        width: 30px;
+        height: 30px;
     }
 }
