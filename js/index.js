@@ -319,7 +319,7 @@ function setThumbAlt(thumb, card, alt, i) {
 }
 
 function applyTransform() {
-    
+
     console.log(totalWidth);
     console.log(firstCard.parentElement);
     console.log(visibleWidth);
@@ -342,7 +342,7 @@ prevBtn.addEventListener("click", () => {
     applyTransform();
 });
 
-function calculateOffsetWidth(){
+function calculateOffsetWidth() {
     firstCard = playCards[0];
     totalWidth = firstCard.parentElement.scrollWidth;
     visibleWidth = firstCard.parentElement.clientWidth;
@@ -468,8 +468,6 @@ cardsContainer.addEventListener('touchstart', (e) => {
     });
 }, { passive: true });
 
-
-
 cardsContainer.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     const currentX = e.touches[0].clientX;
@@ -532,23 +530,29 @@ cardsContainer.addEventListener('contextmenu', (e) => {
 function handleSwipe() {
     const swipeDistance = touchStartX - touchEndX;
     const swipeTime = Date.now() - startTime;
-    const swipeSpeed = Math.abs(swipeDistance) / swipeTime; // pixels per millisecond
-    // Consider both distance and speed for better UX
-    // Lower threshold for fast swipes
+    const swipeSpeed = Math.abs(swipeDistance) / swipeTime;
     const threshold = swipeSpeed > 0.5 ? 30 : 75;
     if (Math.abs(swipeDistance) > threshold) {
         if (swipeDistance > 0 && currentIndex < cards.length - 1) {
-            // Swiped left → go to next slide
             slideToCard(currentIndex + 1);
         } else if (swipeDistance < 0 && currentIndex > 0) {
-            // Swiped right → go to previous slide
             slideToCard(currentIndex - 1);
         } else {
-            // At boundary, snap back
             slideToCard(currentIndex);
         }
     } else {
-        // Not enough swipe, return to current position
         slideToCard(currentIndex);
     }
 }
+
+//================media card - duplication for infinite scroll================
+const mediaTrack = document.querySelector(".media-track");
+const mediaSlider = document.querySelector(".media-slider");
+
+function duplicateMediaTrack(){
+    const duplicateTrack = mediaTrack.cloneNode(true);
+    duplicateTrack.classList.add("duplicate-media-track");
+    console.log(duplicateTrack);
+    mediaSlider.appendChild(duplicateTrack);
+}
+duplicateMediaTrack();
