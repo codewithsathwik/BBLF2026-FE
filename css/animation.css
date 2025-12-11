@@ -32,7 +32,7 @@
 }
 
 .opacity-remove {
-  animation: opacity-overlay-remove 900ms ease forwards;
+  animation: opacity-overlay-remove 500ms ease forwards;
 }
 
 /* overelay opacity transition */

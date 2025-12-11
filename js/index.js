@@ -33,6 +33,11 @@ if (toggleBtn) {
     navMenu.addEventListener("animationend", (e) => {
         if (e.animationName === "slide-right-normal") {
             navMenu.classList.remove("display");
+        }
+    });
+    
+    blackOverlay.addEventListener("animationend", (e) => {
+        if (e.animationName === "opacity-overlay-remove") {  
             blackOverlay.classList.remove("display-block");
         }
     });
