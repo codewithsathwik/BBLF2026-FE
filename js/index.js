@@ -2,6 +2,7 @@
 let toggleBtn = document.querySelector(".menu-btn");
 let navMenu = document.querySelector(".nav");
 let aTag = document.querySelectorAll(".nav a");
+let blackOverlay = document.querySelector(".black-overlay");
 
 
 if (toggleBtn) {
@@ -9,13 +10,20 @@ if (toggleBtn) {
     let arExp;
     toggleBtn.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevent window click
+
         arExp = toggleBtn.getAttribute("aria-expanded");
-        // console.log(arExp);
         if (arExp === "false") {
             toggleBtn.setAttribute('aria-expanded', String("true"));
+            arExp = "true";
+
             navMenu.classList.add("display");
             navMenu.classList.remove("ani-close");
             navMenu.classList.add("ani-open");
+
+            blackOverlay.classList.remove("opacity-remove");
+            blackOverlay.classList.add("display-block");
+            blackOverlay.classList.add("opacity-add");
+
         } else {
             navCloss();
         }
@@ -25,19 +33,27 @@ if (toggleBtn) {
     navMenu.addEventListener("animationend", (e) => {
         if (e.animationName === "slide-right-normal") {
             navMenu.classList.remove("display");
+            blackOverlay.classList.remove("display-block");
         }
     });
 
     //function to close navbar smoothly wiht animation
     function navCloss() {
         toggleBtn.setAttribute('aria-expanded', String("false"));
+        arExp = "false";
+
         navMenu.classList.remove("ani-open");
         navMenu.classList.add("ani-close");
+
+        blackOverlay.classList.remove("opacity-add");
+        blackOverlay.classList.add("opacity-remove");
     }
 
-    // hide mode navbar when resized
+
+
+    // hide mobile navbar when resized
     window.addEventListener("resize", () => {
-        if (arExp == "true" && window.innerWidth < 1050) {
+        if (arExp == "true" && window.innerWidth > 1050) {
             navCloss();
         }
     });
@@ -563,12 +579,11 @@ let Scrollheight;
 
 function addScrollPadding(id) {
     if (id === "home") {
-        Scrollheight = headerHeight + topBarHeight ;
+        Scrollheight = headerHeight + topBarHeight;
     } else {
-        Scrollheight = headerHeight - 5;
+        Scrollheight = headerHeight - 10;
     }
     console.log(Scrollheight);
-    
     document.documentElement.style.setProperty('--scroll-padding', `${Scrollheight}px`);
 }
 

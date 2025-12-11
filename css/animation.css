@@ -27,6 +27,35 @@
   animation: slide-left-normal 900ms ease forwards;
 }
 
+.opacity-add {
+  animation: opacity-overlay-add 900ms ease forwards;
+}
+
+.opacity-remove {
+  animation: opacity-overlay-remove 900ms ease forwards;
+}
+
+/* overelay opacity transition */
+@keyframes opacity-overlay-add {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-overlay-remove {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* ================live-embed animation class================ */
 .element {
@@ -274,10 +303,10 @@
   }
 }
 
-.slide-speaker{
+.slide-speaker {
   animation: slide-on-change 0.5s ease 0s 1 normal forwards;
 }
 
-.speaker-acc{
-  margin-top: 30px ;
+.speaker-acc {
+  margin-top: 30px;
 }

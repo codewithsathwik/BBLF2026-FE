@@ -4,7 +4,8 @@
     --font-main: "Poppins", serif;
     --font-alt: "Red Rose", serif;
 
-    --scroll-padding : 10px;        /*default*/
+    --scroll-padding: 10px;
+    /*default*/
 
     --color-primary: #DDF2FD;
     --color-alt: #4AB2E6;
@@ -58,6 +59,12 @@ section {
 .display {
     display: inline-flex !important;
 }
+
+.display-block{
+    display: block !important;
+}
+
+
 
 .btn {
     background-color: var(--color-alt);
@@ -176,6 +183,18 @@ header {
     cursor: pointer;
 }
 
+.black-overlay {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 40;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+}
+
 /* ================media queries for top bars================ */
 @media screen and (max-width : 1050px) {
     .nav a img {
@@ -195,7 +214,7 @@ header {
         padding-top: 20px;
         top: 0;
         left: 0;
-        /* z-index: 50; */
+        z-index: 50;
         background-color: var(--color-primary);
         height: 100vh;
         justify-content: start;
@@ -209,6 +228,11 @@ header {
         width: 100%;
         padding: 10px;
     }
+
+    /* .black-overlay{
+        display: block;
+        
+    } */
 
 
     .menu-btn {
