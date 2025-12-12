@@ -1993,8 +1993,8 @@ footer p a:hover {
 
 
     /* speaker section */
-    .speaker-btn, .speaker-text{
-        font-size: 14px;
+    .speaker-btn, .speaker-text p{
+        font-size: 14px !important;
     }
     .speacker-navbar{
         margin: 0px 0px 15px;
