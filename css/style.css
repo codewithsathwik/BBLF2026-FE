@@ -1993,7 +1993,7 @@ footer p a:hover {
 
 
     /* speaker section */
-    .speaker-btn{
+    .speaker-btn, .speaker-text{
         font-size: 14px;
     }
     .speacker-navbar{
@@ -2002,6 +2002,8 @@ footer p a:hover {
     .speaker-section{
         padding: 40px 0 50px;
     }
+    .performance-des h2{font-size: 16px; margin-bottom: 10px !important;}
+    .performance-des p{font-size: 14px; line-height: 1.2; margin-top: 0;}
 
     /* event section */
     .event-btn, .event-dw-btn{
@@ -2045,7 +2047,7 @@ footer p a:hover {
         margin: 20px 0 0;
     }
     .test-cards{
-        padding: 30px 30px 50px; 
+        padding: 30px 17px 50px; 
     }
     .test-head h1{
         font-size: 24px;
