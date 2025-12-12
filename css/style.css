@@ -45,7 +45,7 @@ section {
 
 @media (max-width : 720px) {
     section {
-        padding: 50px 0px !important;
+        padding: 50px 0px;
     }
 }
 
@@ -60,7 +60,7 @@ section {
     display: inline-flex !important;
 }
 
-.display-block{
+.display-block {
     display: block !important;
 }
 
@@ -195,6 +195,8 @@ header {
     opacity: 0;
 }
 
+
+
 /* ================media queries for top bars================ */
 @media screen and (max-width : 1050px) {
     .nav a img {
@@ -268,6 +270,7 @@ header {
 .hero {
     background-color: var(--color-primary);
     color: var(--font-ink-main);
+    padding: 0px 0px !important;
 }
 
 .hero-main {
@@ -282,6 +285,10 @@ header {
 
 .date-badge {
     color: var(--font-ink-head);
+}
+
+.hero-details {
+    padding: 65px 0px;
 }
 
 .hero-sub,
@@ -319,6 +326,29 @@ header {
     padding: 5px;
 }
 
+
+/* for bannner image */
+.hero-banner {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hero-banner img {
+    width: 100%;
+    padding: 0;
+}
+
+
+@media (max-width : 720px) {
+    .hero-details {
+        padding: 50px 0px;
+    }
+}
+
 /* ================live embeded section================ */
 .live-embed {
     overflow: hidden;
@@ -352,33 +382,81 @@ header {
 /* grid of live embeds */
 .live-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-columns: repeat(3, minmax(0,1fr)); */
-    justify-content: center;
+    grid-template-columns: repeat(6, 1fr);  /* 6 columns for easier centering */
+    place-items: center;
     gap: 30px;
 }
 
-
-
-@media (max-width : 1030px) {
-    .live-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width : 520px) {
-    .live-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .live-card {
-    width: 100%;
+    max-width: 100%;
     background-color: rgb(255, 255, 255);
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: all 300ms linear;
+    grid-column: span 2;
+    /* Each card spans 2 columns (makes 3 cards per row) */
 }
+
+/* Center 1 item in last row */
+.live-card:last-child:nth-child(3n + 1) {
+    grid-column: 3 / 5;
+}
+
+/* Center single item */
+
+/* Center 2 items in last row */
+.live-card:nth-last-child(2):nth-child(3n + 1) {
+    grid-column: 2 / 4;
+}
+
+/* First of the 2 items */
+.live-card:last-child:nth-child(3n + 2) {
+    grid-column: 4 / 6;
+}
+
+/* Second of the 2 items */
+
+
+@media (max-width : 1030px) {
+    .live-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* 4 columns for 2-column layout */
+    .live-card {
+        grid-column: span 2;
+    }
+
+    /* Each card spans 2 columns */
+
+    /* Reset 3-column rules */
+    .live-card:last-child:nth-child(3n + 1),
+    .live-card:last-child:nth-child(3n + 2),
+    .live-card:nth-last-child(2):nth-child(3n + 1) {
+        grid-column: span 2;
+    }
+
+    .live-card:last-child:nth-child(2n + 1) {
+        grid-column: 2 / 4;
+    }
+
+    /* Center 1 item in 2-column layout */
+}
+
+@media (max-width : 700px) {
+    .live-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .live-card {
+        grid-column: span 2;
+    }
+
+    .live-card:last-child:nth-child(2n + 1) {
+        grid-column: span 2;
+    }
+}
+
 
 .live-card:hover {
     transform: scale(1.02);
@@ -414,7 +492,6 @@ header {
     top: 0;
     left: 0;
     z-index: 60;
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     display: none;
@@ -453,8 +530,6 @@ header {
     right: 0;
 }
 
-
-
 /* ================about section================ */
 .about {
     background-color: var(--color-primary);
@@ -473,7 +548,6 @@ header {
 
 .about-txt {
     grid-area: abtxt;
-
 }
 
 .about-txt h2 {
@@ -506,8 +580,7 @@ header {
 @media (max-width : 1030px) {
     .about-bb {
         display: grid;
-        grid-template-areas: "bbimg"
-            "abtxt";
+        grid-template-areas: "bbimg" "abtxt";
         grid-template-columns: 1fr;
         gap: 0px;
     }
@@ -541,12 +614,6 @@ header {
     border-radius: var(--border-radius);
     border: 1px solid rgb(255, 255, 255);
 }
-
-/* .counter:hover {
-    transform: scale(1);
-    box-shadow: var(--shadow);
-    
-} */
 
 .counter span {
     font-size: 12px;
@@ -624,10 +691,12 @@ header {
     width: 100%;
 }
 
-/* class to keep the one selected colored */
+
 .active {
     color: var(--font-ink-alt);
 }
+
+/* class to keep the one selected colored */
 
 .active::before {
     width: 100%;
@@ -643,15 +712,14 @@ header {
 }
 
 .grid-speakers {
-    /* did this for hiding the other sections */
     width: 100%;
     display: none;
+    /* did this for hiding the other sections */
     grid-template-columns: repeat(6, 1fr);
     gap: 40px;
     justify-content: center;
     align-items: center;
 }
-
 
 .speaker-card {
     background-color: white;
@@ -717,6 +785,7 @@ header {
     }
 }
 
+/* for rspnsive navbar for speakers  */
 @media (max-width : 950px) {
     .speacker-navbar {
         flex-direction: column;
@@ -759,7 +828,6 @@ header {
     background-color: inherit;
     text-align: left;
     font-size: 16px;
-    /* box-sizing: border-box; */
 }
 
 .performance-des p {
@@ -779,15 +847,12 @@ header {
 }
 
 .performance-img img {
-    /* aspect-ratio: 16/9; */
-    /* object-fit: cover;
-    object-position: center; */
     grid-area: img;
     width: 100%;
     border-radius: var(--border-radius);
 }
 
-
+/* force to make the single column for performance card */
 @media (max-width : 720px) {
     .performance {
         grid-template-columns: 1fr;
@@ -800,7 +865,6 @@ header {
         grid-template-areas: "img" "txt";
     }
 }
-
 
 /* ================event schedule section================ */
 .event-schedule {
@@ -943,7 +1007,7 @@ header {
     .partners-grid,
     .grid-title-partner,
     .grid-special {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 300px !important;
     }
 
     .grid-special {
@@ -1229,12 +1293,8 @@ header {
     justify-content: space-around;
     padding: 30px 20px;
     border-radius: var(--border-radius);
-    box-shadow: -8px 8px 16px rgba(0, 0, 0, 0.25);
-    transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.test-card:hover {
     box-shadow: var(--shadow-2);
+    transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .test-quote-image {
@@ -1356,8 +1416,18 @@ header {
 
     .test-card {
         grid-template-columns: 1fr;
+        grid-template-areas: "text-txt"
+            "author";
         padding: 10px;
-        box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    /* for author details below and text up; */
+    .test-author {
+        grid-area: author;
+    }
+
+    .test-text {
+        grid-area: text-txt;
     }
 
     .test-cards {
@@ -1386,8 +1456,8 @@ header {
 }
 
 .session-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
+     display: grid;
+    grid-template-columns: repeat(6, 1fr);  /* 6 columns for easier centering */
     gap: 30px;
     padding: 15px;
     margin-top: 30px;
@@ -1400,6 +1470,7 @@ header {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-2);
     transition: all 300ms linear;
+     grid-column: span 2;  /* Each card spans 2 columns (makes 3 cards per row) */
 }
 
 .session-card:hover {
@@ -1412,6 +1483,20 @@ header {
     aspect-ratio: 16/9;
     object-fit: cover;
     object-position: top center;
+}
+
+/* Center 1 item in last row */
+.session-card:last-child:nth-child(3n + 1) {
+    grid-column: 3 / 5;  /* Center single item */
+}
+
+/* Center 2 items in last row */
+.session-card:nth-last-child(2):nth-child(3n + 1) {
+    grid-column: 2 / 4;  /* First of the 2 items */
+}
+
+.session-card:last-child:nth-child(3n + 2) {
+    grid-column: 4 / 6;  /* Second of the 2 items */
 }
 
 .session-text h3 {
@@ -1429,21 +1514,39 @@ header {
 
 @media (max-width : 1030px) {
     .session-grid {
-        grid-template-columns: 1fr 1fr;
+         grid-template-columns: repeat(4, 1fr);  /* 4 columns for 2-column layout */
     }
 
+    .session-card {
+        grid-column: span 2;  /* Each card spans 2 columns */
+    }
+    /* Reset 3-column rules */
+    .session-card:last-child:nth-child(3n + 1),
+    .session-card:last-child:nth-child(3n + 2),
+    .session-card:nth-last-child(2):nth-child(3n + 1) {
+        grid-column: span 2;
+    }
+
+    .session-card:last-child:nth-child(2n + 1) {
+        grid-column: 2 / 4; /* Center 1 item in 2-column layout */
+    }
     .session-text h3 {
         font-size: 20px;
     }
-
     .session-text p {
         font-size: 14px;
     }
 }
 
-@media (max-width : 520px) {
+@media (max-width : 620px) {
     .session-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .session-card {
+        grid-column: span 2;
+    }
+    .session-card:last-child:nth-child(2n + 1) {
+        grid-column: span 2;  /* reset 2 column rules */
     }
 }
 
@@ -1835,3 +1938,6 @@ footer p a:hover {
         font-size: 14px;
     }
 }
+
+
+/* ================extra tweeks for mobile resolution================*/
