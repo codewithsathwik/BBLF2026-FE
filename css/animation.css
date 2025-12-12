@@ -310,3 +310,15 @@
 .speaker-acc {
   margin-top: 30px;
 }
+
+
+/* animation for media section */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

@@ -332,16 +332,6 @@ header {
     padding: 0;
 }
 
-
-@media (max-width : 720px) {
-    .hero-details {
-        padding: 50px 0px;
-    }
-    .live-title{
-        font-size: 14px !important;
-    }
-}
-
 /* ================live embeded section================ */
 .live-embed {
     overflow: hidden;
@@ -365,12 +355,12 @@ header {
 }
 
 .live-container h2 {
-    margin: 0px;
-    margin-bottom: 25px;
+    margin: 0 0 20px;
     text-align: center;
     color: var(--font-ink-alt);
-    font-size: 28px;
+    font-size: 24px;
 }
+
 
 /* grid of live embeds */
 .live-grid {
@@ -472,7 +462,7 @@ header {
     padding-bottom: 1px;
     margin: 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--font-alt);
     color: var(--font-ink-main);
 }
@@ -497,7 +487,7 @@ header {
 
 .popup-container {
     min-width: 200px;
-    padding: 15px;
+    padding: 10px;
     max-width: 900px;
     height: 360px;
     background-color: var(--color-primary);
@@ -527,14 +517,14 @@ header {
 /* ================about section================ */
 .about {
     background-color: var(--color-primary);
-    padding: 40px 0 !important;
+    padding: 20px 0 !important;
 }
 
 .about-bb {
     display: grid;
     grid-template-areas: "abtxt bbimg";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    /* grid-template-rows: auto; */
     gap: 65px;
     justify-content: center;
     align-items: center;
@@ -545,13 +535,13 @@ header {
 }
 
 .about-txt h2 {
-    margin-top: 0;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
 }
 
 .about-txt p {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--font-ink-head);
     line-height: 1.6;
     margin-top: 0;
@@ -567,6 +557,9 @@ header {
 }
 
 .about-img img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    object-position: center;
     width: 100%;
 }
 
@@ -629,19 +622,20 @@ header {
 .speaker-section {
     background-color: var(--color-primary);
     text-align: center;
+    padding: 40px 0 50px !important;
 }
 
 .speaker-section h2 {
-    margin-top: 0;
+    margin: 0 0 20px;
     color: var(--font-ink-main);
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .speacker-navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 0 0 30px;
     background-color: #F8F1E6;
     border-radius: var(--border-radius);
     width: max-content;
@@ -664,10 +658,15 @@ header {
     cursor: pointer;
     background-color: inherit;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
     transition: color 0.3s cubic-bezier(.4, 0, .2, 1);
 }
+
+.speaker-acc {
+    margin: 30px 0 0;
+}
+
 
 .speaker-btn::before {
     content: "";
@@ -745,7 +744,7 @@ header {
 }
 
 .speaker-text p {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     padding: 3px;
     font-weight: 600;
@@ -795,7 +794,7 @@ header {
     grid-template-columns: 1fr;
     gap: 30px;
     max-width: 1000px;
-    margin: auto;
+    margin: 30px auto 0;
 }
 
 .performance {
@@ -821,17 +820,21 @@ header {
     grid-area: txt;
     background-color: inherit;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .performance-des p {
-    margin: 10px 0px;
-    line-height: 1.3;
+    font-size: 14px;
+    margin: 0 0px 5px;
+    line-height: 1.6;
 }
 
 .performance-des h2 {
-    margin: 0;
-    font-size: 24px;
+    margin: 0 0 10px;
+    font-size: 20px;
 }
 
 .performance-img {
@@ -847,7 +850,13 @@ header {
 }
 
 /* force to make the single column for performance card */
-@media (max-width : 720px) {
+@media (max-width : 950px) {
+    .speacker-navbar {
+        margin: 0 0 20px;
+    }
+}
+
+@media (max-width : 800px) {
     .performance {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -867,9 +876,8 @@ header {
 
 .event h2 {
     padding: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
@@ -889,14 +897,15 @@ header {
 
 .event-sc-btn,
 .event-sc-dw-btn {
-    padding: 10px 0px;
+    
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     font-family: var(--font-main);
-    margin-bottom: 10px;
+    margin: 0 0 20px;
 }
 
 .event-sc-dw-btn {
@@ -905,6 +914,7 @@ header {
 
 .event-btn,
 .event-dw-btn {
+    font-size: 14px !important;
     border: none;
     font-family: var(--font-main);
 }
@@ -924,19 +934,22 @@ header {
 }
 
 .partners h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
 
 .partners h3 {
     margin: 0;
-    font-size: 19px;
+    font-size: 17px;
     color: var(--font-ink-head);
     text-align: center;
-    margin-top: 50px;
+    margin: 20px 0 16px;
+}
+
+.partners-card-special h3 {
+    margin: 20px 0 14px;
 }
 
 .partners-grid {
@@ -945,22 +958,24 @@ header {
     justify-content: center;
     /*used to center the row*/
     gap: 20px;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .partners-grid-special {
     padding: 0 !important;
+    margin: 40px 0;
 }
 
 .partners-card {
     background-color: white;
-    border-radius: 18px;
+    border-radius: 16px;
     padding: 16px 20px;
     display: flex;
     margin: 0;
     justify-content: center;
     align-items: center;
     box-shadow: var(--shadow-2);
+    /* max-height: 110px; */
 }
 
 .partners-card-special {
@@ -980,7 +995,7 @@ header {
 }
 
 .partners-grid img {
-    max-height: 70px;
+    max-height: 60px;
     display: block;
     object-fit: contain;
 }
@@ -1001,7 +1016,7 @@ header {
     .partners-grid,
     .grid-title-partner,
     .grid-special {
-        grid-template-columns: 300px !important;
+        grid-template-columns: 250px !important;
     }
 
     .grid-special {
@@ -1012,7 +1027,7 @@ header {
         padding: 14px 16px;
     }
 
-    .partner-card img {
+    .partner-grid img {
         max-height: 50px;
     }
 
@@ -1028,9 +1043,8 @@ header {
 }
 
 .old-archives h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
@@ -1044,9 +1058,10 @@ header {
 
 .gallery h3,
 .video-gallary h3 {
-    font-size: 19px;
+    font-size: 17px;
     color: var(--font-ink-head);
     text-align: center;
+    margin: 0 0 15px;
 }
 
 .photo-galary {
@@ -1127,7 +1142,7 @@ header {
 
 /* slider */
 .playlist-slider {
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1234,19 +1249,16 @@ header {
 }
 
 .test h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
 
 .test-container {
-    margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 25px;
-    /* height: 800px; */
 }
 
 .test-head {
@@ -1266,10 +1278,12 @@ header {
     line-height: 1.6;
 }
 
+
+
 .test-cards {
     /* background-color: var(--color-alt); */
     position: relative;
-    padding: 50px 30px;
+    padding: 35px 30px;
     display: flex;
     /* justify-content: center; */
     gap: 55px;
@@ -1338,7 +1352,8 @@ header {
 }
 
 .test-text .test-heading h2 {
-    font-size: 24px;
+    font-size: 19px;
+    margin: 0;
 }
 
 .test-text .test-paragraph p {
@@ -1442,9 +1457,8 @@ header {
 }
 
 .session h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
@@ -1455,7 +1469,6 @@ header {
     /* 6 columns for easier centering */
     gap: 30px;
     padding: 15px;
-    margin-top: 30px;
 }
 
 .session-card {
@@ -1499,14 +1512,14 @@ header {
 }
 
 .session-text h3 {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
     margin-top: 10px;
     color: var(--font-ink-main);
 }
 
 .session-text p {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 0;
     color: var(--font-ink-head);
 }
@@ -1532,14 +1545,6 @@ header {
     .session-card:last-child:nth-child(2n + 1) {
         grid-column: 2 / 4;
         /* Center 1 item in 2-column layout */
-    }
-
-    .session-text h3 {
-        font-size: 20px;
-    }
-
-    .session-text p {
-        font-size: 14px;
     }
 }
 
@@ -1569,8 +1574,8 @@ header {
 
 .venue-section h2 {
     margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px;
+    font-size: 24px;
     color: var(--font-ink-alt);
     text-align: center;
 }
@@ -1579,7 +1584,7 @@ header {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 35px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .venue-map {
@@ -1605,6 +1610,7 @@ header {
 }
 
 .venue-btn {
+    font-size: 14px !important;
     border-radius: 50px !important;
 }
 
@@ -1624,7 +1630,7 @@ header {
     margin: 0;
     color: var(--font-ink-main);
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .venue-icon {
@@ -1653,7 +1659,7 @@ header {
 }
 
 .venue-text p {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     color: var(--font-ink-head);
 }
@@ -1694,9 +1700,8 @@ header {
 }
 
 .media-container h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 28px;
+    margin: 0 0 20px; 
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
@@ -1729,7 +1734,6 @@ header {
 /* card */
 
 .media-slider {
-    margin-top: 30px;
     overflow: hidden;
     width: 100%;
     display: flex;
@@ -1747,15 +1751,7 @@ header {
     animation-play-state: paused;
 }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
 
-    100% {
-        transform: translateX(-100%);
-    }
-}
 
 .media-card {
     flex: 0 0 300px;
@@ -1782,7 +1778,7 @@ header {
 }
 
 .media-details {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--font-ink-head);
     padding: 0px 10px 10px;
 }
@@ -1809,6 +1805,7 @@ header {
 /* ================contact section================ */
 .contact {
     background-color: var(--color-primary);
+    padding: 20px 0;
 }
 
 .contact-container {
@@ -1832,13 +1829,13 @@ header {
 }
 
 .brand-details h3 {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--font-ink-main);
     margin: 20px 0px 0px;
 }
 
 .brand-logo {
-    width: 200px;
+    width: 170px;
 }
 
 .brand-logo img {
@@ -1851,8 +1848,8 @@ header {
 }
 
 .brand-social img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -1874,9 +1871,8 @@ header {
 }
 
 .contact-details h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 28px;
+    margin: 0 0 5px; 
+    font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
 }
@@ -1884,7 +1880,7 @@ header {
 .contact-details p,
 .contact-details a {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--font-ink-head);
     transition: all 300ms ease;
 }
@@ -1904,7 +1900,7 @@ footer p {
     color: white;
     text-align: center;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -1933,17 +1929,8 @@ footer p a:hover {
         margin: 5px 0px 0px;
     }
 
-    .brand-social img {
-        width: 30px;
-        height: 30px;
-    }
-
     footer {
         padding: 20px 0px;
-    }
-
-    footer p {
-        font-size: 14px;
     }
 }
 
@@ -1958,7 +1945,8 @@ footer p a:hover {
     .partners h2,
     .archive h2,
     .test h2,
-    .session h2 ,.venue-container h2,
+    .session h2,
+    .venue-container h2,
     .media-container h2,
     .contact-details h2 {
         font-size: 20px !important;
@@ -1972,19 +1960,22 @@ footer p a:hover {
 
     .date-badge,
     .countdown,
-    .hero-sub,.live-title {
+    .hero-sub,
+    .live-title {
         font-size: 14px;
     }
-    .about-txt p{
+
+    .about-txt p {
         font-size: 14px;
     }
 
 
     /* counter up section */
-    .target{
+    .target {
         font-size: 20px;
     }
-    .counter{
+
+    .counter {
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -1993,121 +1984,130 @@ footer p a:hover {
 
 
     /* speaker section */
-    .speaker-btn, .speaker-text p{
-        font-size: 14px !important;
-    }
-    .speacker-navbar{
+    .speacker-navbar {
         margin: 0px 0px 15px;
     }
-    .speaker-section{
+
+    .speaker-section {
         padding: 40px 0 50px;
     }
-    .performance-des h2{font-size: 16px; margin-bottom: 10px !important;}
-    .performance-des p{font-size: 14px; line-height: 1.2; margin-top: 0;}
+
+    .performance-des h2 {
+        font-size: 16px;
+    }
+
+    .performance-des p {
+        line-height: 1.2;
+        margin-top: 0;
+    }
 
     /* event section */
-    .event-btn, .event-dw-btn{
+    .event-btn,
+    .event-dw-btn {
         font-size: 13px !important;
     }
-    .event-sc-btn{
+
+    .event-sc-btn {
         gap: 10px;
         padding: 0;
         margin-bottom: 15px !important;
     }
-    .event-sc-dw-btn{padding: 0;}
-    .event-pdf iframe{margin: 0 0 15px;}
+
+    .event-sc-dw-btn {
+        padding: 0;
+    }
+
+    .event-pdf iframe {
+        margin: 0 0 15px;
+    }
 
     /* partners section */
-    .partners h3{
+    .partners h3 {
         font-size: 16px;
         margin: 18px 0 14px;
     }
+
+    .partners-grid-special {
+        margin: 0;
+    }
+
     .partner-card {
         min-height: 100px;
         padding: 14px 16px;
     }
-    .partners-card-special h3{
+
+    .partners-card-special h3 {
         margin: 0;
     }
-    .partners-card-special:first-child h3{
+
+    .partners-card-special:first-child h3 {
         margin-top: 18px;
-    }
-    .partners-grid img{
-        max-height: 52px;
     }
 
     /* archive section  */
-    .archive h3{
+    .archive h3 {
         font-size: 16px;
         margin: 0 0 15px;
     }
 
     /* testimonials section */
-    .test-container{
+    .test-container {
         margin: 20px 0 0;
     }
-    .test-cards{
-        padding: 30px 17px 50px; 
+
+    .test-cards {
+        padding: 30px 17px 50px;
     }
-    .test-head h1{
+
+    .test-head h1 {
         font-size: 24px;
     }
-    .test-heading h2{
-        font-size: 19px !important;
+
+    .test-heading h2 {
         margin: 15px !important;
     }
-    .test-paragraph p{
-        font-size: 14px;
+
+    .test-paragraph p {
         margin: 0 0 15px;
-    }
-    .test-name p{
-        font-size: 14px !important;
     }
 
     /* session section  */
-    .session-grid{
+    .session-grid {
         margin-top: 0;
     }
-    .session-text h3{
+
+    .session-text h3 {
         font-size: 19px;
-    }
-    .session-text p{
-        font-size: 14px;
     }
 
     /* venue section  */
-    .venue-grid{
+    .venue-grid {
         margin: 0;
     }
-    .venue-details h3{
+
+    .venue-details h3 {
         font-size: 19px;
     }
-    .venue-text p{
-        font-size: 14px;
+
+    .venue-btn {
+        font-size: 13px !important;
     }
 
     /* medai section */
-    .media-slider{
+    .media-slider {
         margin: 0;
     }
-    .media-link{
+
+    .media-link {
         font-size: 11px;
-    }
-    .media-des{
-        font-size: 14px;
     }
 
     /* contact section */
-    .contact-container{
+    .contact-container {
         gap: 30px;
     }
-    .contact-details p, .contact-details a{
-        font-size: 14px;
-    }
+
     .brand-logo {
-        width: 150px;
-    }
-    .brand-details h3{
-        font-size: 16px;
+        width: 140px;
     }
 }
