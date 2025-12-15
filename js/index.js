@@ -1,83 +1,3 @@
-// ================navgation bar toggle for mobile================
-let toggleBtn = document.querySelector(".menu-btn");
-let navMenu = document.querySelector(".nav");
-let aTag = document.querySelectorAll(".nav a");
-let blackOverlay = document.querySelector(".black-overlay");
-
-
-if (toggleBtn) {
-    // menu button click
-    let arExp;
-    toggleBtn.addEventListener("click", (e) => {
-        e.stopPropagation(); // Prevent window click
-
-        arExp = toggleBtn.getAttribute("aria-expanded");
-        if (arExp === "false") {
-            toggleBtn.setAttribute('aria-expanded', String("true"));
-            arExp = "true";
-
-            navMenu.classList.add("display");
-            navMenu.classList.remove("ani-close");
-            navMenu.classList.add("ani-open");
-
-            blackOverlay.classList.remove("opacity-remove");
-            blackOverlay.classList.add("display-block");
-            blackOverlay.classList.add("opacity-add");
-
-        } else {
-            navCloss();
-        }
-    });
-
-    // the below is used to close mobile nav after animation
-    navMenu.addEventListener("animationend", (e) => {
-        if (e.animationName === "slide-right-normal") {
-            navMenu.classList.remove("display");
-        }
-    });
-    
-    blackOverlay.addEventListener("animationend", (e) => {
-        if (e.animationName === "opacity-overlay-remove") {  
-            blackOverlay.classList.remove("display-block");
-        }
-    });
-
-    //function to close navbar smoothly wiht animation
-    function navCloss() {
-        toggleBtn.setAttribute('aria-expanded', String("false"));
-        arExp = "false";
-
-        navMenu.classList.remove("ani-open");
-        navMenu.classList.add("ani-close");
-
-        blackOverlay.classList.remove("opacity-add");
-        blackOverlay.classList.add("opacity-remove");
-    }
-
-
-
-    // hide mobile navbar when resized
-    window.addEventListener("resize", () => {
-        if (arExp == "true" && window.innerWidth > 1050) {
-            navCloss();
-        }
-    });
-
-    //used to close nav bar when clicked on outside of navbar
-    window.addEventListener("click", (e) => {
-        if (e.target.tagName != "NAV" && navMenu.classList.contains('display')) {
-            navCloss();
-        }
-    });
-
-    //to close the navbar when a link is clicked (mobile or tablet)
-    aTag.forEach((a) => {
-        a.addEventListener("click", () => {
-            navCloss();
-        })
-    });
-}
-
 
 // ================timer for the event================
 
@@ -124,7 +44,7 @@ liveGrid.forEach((card) => {
     })
 });
 
-closeBtn.addEventListener("click", () => closePopup());
+
 
 function openPopup(link) {
     iframe.src = link;
@@ -135,6 +55,8 @@ function openPopup(link) {
 
     popupContainer.classList.add("ani-overlay-show");
     innerPopupContainer.classList.add("ani-popup-show");
+
+    closeBtn.addEventListener("click", closePopup);
 }
 
 function closePopup() {
@@ -156,28 +78,7 @@ function closePopup() {
     });
 }
 
-
-// counter up section logic
-// const counters = document.querySelectorAll(".counter .target");
-// const speed = 500;
-
-// counters.forEach((counter) => {
-//     counter.textContent = "0";
-
-//     function updateCounter(){
-//         const targetValue = counter.getAttribute("data-target");
-//         const target = Number(targetValue);
-//         const c = Math.ceil(Number(counter.textContent));
-//         const increment = Math.ceil(target/speed);
-//         if(c < target){
-//             counter.textContent = `${c + increment}`;
-//             setTimeout(updateCounter, 1);
-//         }else{
-//             counter.textContent = target.toLocaleString();
-//         }
-//     }
-//     updateCounter();
-// });
+// ============================counter up section============================
 
 const counters = document.querySelectorAll(".counter .target");
 const counterContainer = document.querySelector(".counter-up")
@@ -271,12 +172,6 @@ scBtn.forEach(button => {
     });
 });
 
-// function openPDF(path) {
-//     const config = "#toolbar=0&navpanes=0&scrollbar=0";
-//     pdfFrame.setAttribute("src", "");
-//     const link = `${path + config}`;
-//     pdfFrame.setAttribute("src", link);
-// }
 
 function openPDF(path) {
     const config = "#toolbar=0&navpanes=0&scrollbar=0";
@@ -394,6 +289,7 @@ const gap = 55; //in px , gap betwwen two cards
 let button = [];
 let currentIndex = 0;
 let autoSlideInterval;
+let nextIndex;
 
 function generateButtons() {
     slideButtonContainer.innerHTML = "";
@@ -600,5 +496,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         target.scrollIntoView({ behavior: 'smooth' });
     });
-
 });
+

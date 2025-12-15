@@ -897,7 +897,7 @@ header {
 
 .event-sc-btn,
 .event-sc-dw-btn {
-    
+
     padding: 0;
     display: flex;
     align-items: center;
@@ -1700,7 +1700,7 @@ header {
 }
 
 .media-container h2 {
-    margin: 0 0 20px; 
+    margin: 0 0 20px;
     font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
@@ -1871,7 +1871,7 @@ header {
 }
 
 .contact-details h2 {
-    margin: 0 0 5px; 
+    margin: 0 0 5px;
     font-size: 24px;
     color: var(--font-ink-main);
     text-align: center;
@@ -2110,4 +2110,71 @@ footer p a:hover {
     .brand-logo {
         width: 140px;
     }
+}
+
+
+/* ==================================other page section================================== */
+/* terms and condditions section */
+.terms-section {
+    background-color: var(--color-primary);
+    padding: 10px 0 !important;
+}
+
+.terms h1 {
+    text-align: center;
+    color: var(--font-ink-main);
+    font-size: 30px;
+}
+
+.term-intro {
+    color: var(--font-ink-head);
+    font-size: 15px;
+    background-color: white;
+    padding: 8px 10px;
+    border-radius: var(--border-radius);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: var(--shadow-2);
+    margin-bottom: 40px;
+    border-left: 5px solid var(--color-alt);
+}
+.condition-container{
+    margin: 0px 0 40px;
+}
+
+.condition{
+    margin: 10px 0;
+    box-shadow: var(--shadow-2);
+    background-color: white;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--color-alt);
+}
+
+.condition h2{
+    color: var(--font-ink-main);
+    font-size: 24px;
+    margin: 0;
+}
+
+.condition ul{
+    font-size: 16px;
+    margin: 5px 0 15px;
+}
+@media (max-width : 550px) {
+    .terms h1{
+        font-size: 24px;
+    }
+    .term-intro{
+        font-size: 14px;
+    }
+    .condition h2{
+        font-size: 19px;
+    }
+    .condition ul{
+        font-size: 14px;
+    }
+    .term-intro {
+        margin-bottom: 25px;
+    }
+    .condition-container{margin-bottom: 25px;}
 }
