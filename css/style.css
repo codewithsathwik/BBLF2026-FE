@@ -2469,9 +2469,7 @@ footer p a:hover {
 }
 
 .speaker-des-img {
-    
     width: 100%;
-    position: relative;
     aspect-ratio: 1/1;
     border-radius: var(--radius);
     overflow: hidden;
@@ -2481,9 +2479,7 @@ footer p a:hover {
 }
 
 .speaker-des-img img {
-    position: absolute;
     border-radius: inherit;
-    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -2504,13 +2500,105 @@ footer p a:hover {
 }
 
 @media (max-width : 950px) {
-    .speaker-des-grid{
+    .speaker-des-grid {
         grid-template-columns: 1fr;
     }
-    .speaker-des-img{
-        width: clamp(200px, 60vw, 260px);
+
+    .speaker-des-img {
+        width: clamp(200px, 60vw, 270px);
     }
-    .speaker-des h2{
+
+    .speaker-des h2 {
         font-size: 20px;
     }
+}
+
+/* friends of festival section */
+.friends {
+    background-color: var(--color-primary);
+}
+
+.friends h2 {
+    font-size: 30px;
+    color: var(--font-ink-main);
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.friends-cards{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+}
+.friends-img{
+    width: 100%;
+    overflow: hidden;
+    width: clamp(300px , 100%, 600px );
+    /* background: #f3f4f6; */
+    border-radius: var(--border-radius);
+}
+
+.friends-img img{
+    border-radius: inherit;
+    width: 100%;
+    /* height: 100%; */
+    object-fit: cover;
+    display: block;
+    box-shadow: var(--shadow-2);
+}
+
+.friends-des h3{
+    font-size: 24px;
+    margin: 10px 0 5px;
+    color: var(--font-ink-head);
+}
+
+.friends-des p{
+    margin: 0;
+    line-height: 1.6;
+    font-size: 16px;
+    color: var(--font-ink-head);
+}
+
+.friends-des ul li span{
+    font-weight: 600;
+}
+
+@media (max-width : 1120px){
+    .friends h2{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .friends-grid{
+        grid-template-columns: 1fr;
+        grid-template-areas: "img" "text";
+        gap: 15px;
+        align-items: center;
+    }
+    .friends-cards{gap: 30px;}
+    .friends-img{
+        grid-area: img;
+    }
+    .friends-des{grid-area: text;}
+    
+}
+
+@media (max-width : 720px){
+    .friends{padding: 25px 0 20px;}
+    .friends-cards{gap: 20px;}
+    .friends h2{
+        font-size: 20px;
+    }
+    .friends-des p, .friends-des ul li{font-size: 14px;}
+    .friends-des h3{font-size: 19px;
+    margin: 0 0 5px;}
 }
