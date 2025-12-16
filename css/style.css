@@ -2345,7 +2345,7 @@ footer p a:hover {
     }
 }
 
-/* team section */
+/* ==================================team section================================== */
 .team-section {
     background-color: var(--color-primary);
 }
@@ -2455,7 +2455,7 @@ footer p a:hover {
     }
 }
 
-/* speaker description page */
+/* ==================================speaker description page================================== */
 .speaker-description {
     background-color: var(--color-primary);
 }
@@ -2513,7 +2513,7 @@ footer p a:hover {
     }
 }
 
-/* friends of festival section */
+/* ==================================friends of festival section================================== */
 .friends {
     background-color: var(--color-primary);
 }
@@ -2543,14 +2543,12 @@ footer p a:hover {
     width: 100%;
     overflow: hidden;
     width: clamp(300px , 100%, 600px );
-    /* background: #f3f4f6; */
     border-radius: var(--border-radius);
 }
 
 .friends-img img{
     border-radius: inherit;
     width: 100%;
-    /* height: 100%; */
     object-fit: cover;
     display: block;
     box-shadow: var(--shadow-2);
@@ -2574,31 +2572,73 @@ footer p a:hover {
 }
 
 @media (max-width : 1120px){
-    .friends h2{
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
+    .friends h2{font-size: 24px;margin-bottom: 10px;}
     .friends-grid{
         grid-template-columns: 1fr;
-        grid-template-areas: "img" "text";
+        grid-template-areas: "img" "text";   /* to arrange the images one afthre the other */
         gap: 15px;
         align-items: center;
     }
     .friends-cards{gap: 30px;}
-    .friends-img{
-        grid-area: img;
-    }
+    .friends-img{grid-area: img;}
     .friends-des{grid-area: text;}
-    
 }
 
 @media (max-width : 720px){
     .friends{padding: 25px 0 20px;}
     .friends-cards{gap: 20px;}
-    .friends h2{
-        font-size: 20px;
-    }
+    .friends h2{font-size: 20px;}
+    .friends-des p{margin: 0 0 10px;}
     .friends-des p, .friends-des ul li{font-size: 14px;}
-    .friends-des h3{font-size: 19px;
-    margin: 0 0 5px;}
+    .friends-des h3{font-size: 19px;margin: 0 0 5px;}
+    .friends-des ul{margin-top: 0;}
+}
+
+
+/* ==================================404 page not found page================================== */
+.page-not-found{
+    background-color: var(--color-primary);
+    width: 100vw;
+    height: 100vh;
+}
+.page-404{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo-404{
+    width: clamp(270px, 60vw, 600px);
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.logo-404 img{
+    width: 100%;
+}
+.page-404 h1{
+    font-family: var(--font-alt);
+    color: var(--font-ink-alt);
+    font-size: 30px;
+    margin: 20px 0 0;
+}
+.page-404 p{
+    padding: 0 10px;
+    margin: 10px 0 20px;
+    font-size: 16px;
+    max-width: 700px;
+    text-align: center;
+    color: var(--font-ink-head);
+}
+
+.page-404 a{
+    font-size: 16px;
+    padding: 8px 15px;
+}
+@media (max-width : 750px) {
+    .page-404 p, .page-404 a{font-size: 14px !important;}
+    .page-404 a{padding: 8px 10px;}
+    .page-404 h1{font-size: 24px;}
 }
