@@ -24,14 +24,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="/assets/images/favicon-bb.png" />
-
-
+    
 </head>
 
 <body>
     <!-- top bar -->
     <section class="top-nav" aria-label="Top bar for old websites">
         <div class="top-bar container">
+
+            <!-- left : for old web links -->
             <div class="top-social">
                 <p>Follow us on : </p>
                 <a href="" target="_blank"><img src="/assets/icons/instagram.png" alt="instagram-logo"></a>
@@ -39,6 +40,8 @@
                 <a href="" target="_blank"><img src="/assets/icons/twitter.png" alt="x-twitter-logo"></a>
                 <a href="" target="_blank"><img src="/assets/icons/youtube.png" alt="youtube-logo"></a>
             </div>
+
+            <!-- Right : for old web links -->
             <div class="old-web">
                 <a href="" target="_blank">#BBLF2024</a>
                 <a href="" target="_blank">#BBLF2025</a>
@@ -49,10 +52,12 @@
     <!-- navigation bar -->
     <header aria-label="Naviagtion">
         <div class="container nav-bar">
+            <!-- Left: brand image -->
             <a href="/">
                 <img src="/assets/images/bblf-logo.png" alt="bblf-logo">
             </a>
 
+            <!-- Right: brand image -->
             <nav class="nav">
                 <a href="/">
                     <img src="/assets/images/bblf-logo.png" alt="bblf-logo">
@@ -67,9 +72,10 @@
                 <a href="" class="btn">Register</a>
             </nav>
 
-            <!-- this is for black overlay on mobile navbar -->
+            <!-- this is for black overlay on mobile navbar : hidden in large screen-->
             <div class="black-overlay"></div>
 
+            <!-- hidden in large screen -->
             <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
         </div>
     </header>
@@ -121,6 +127,8 @@
 
     <!-- live emebed from (DB) -->
     <section class="live-embed" id="live">
+
+        <!-- background animation elements -->
         <div class="animation-elements">
             <div class="element">🪶</div>
             <div class="element">📜</div>
@@ -143,52 +151,63 @@
             <h2>Watch Live</h2>
             <!-- live-embeded grid -->
             <div class="live-grid">
+                <!-- add the embed url in data-embede-url attribute-->
                 <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
+                    <!-- live image -->
                     <div class="live-img">
                         <img src="/assets/uploads/live.webp" alt="Thumbnail of the livestream">
                     </div>
+                    <!-- live name -->
                     <div class="live-text">
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
 
                 <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
+                    <!-- live image -->
                     <div class="live-img">
                         <img src="/assets/uploads/live.webp" alt="Thumbnail of the livestream">
                     </div>
+                    <!-- live name -->
                     <div class="live-text">
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
 
                 <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
+                    <!-- live image -->
                     <div class="live-img">
                         <img src="/assets/uploads/live.webp" alt="Thumbnail of the livestream">
                     </div>
+                    <!-- live name -->
                     <div class="live-text">
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
 
                 <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
+                    <!-- live image -->
                     <div class="live-img">
                         <img src="/assets/uploads/live.webp" alt="Thumbnail of the livestream">
                     </div>
+                    <!-- live name -->
                     <div class="live-text">
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
+
                 <article class="live-card" data-embed-url="https://www.youtube.com/embed/GenHXHOSUqc">
+                    <!-- live image -->
                     <div class="live-img">
                         <img src="/assets/uploads/live.webp" alt="Thumbnail of the livestream">
                     </div>
+                    <!-- live name -->
                     <div class="live-text">
                         <p class="live-title">Akshara</p>
                     </div>
                 </article>
 
-
-
+                
             </div>
             <!-- live-embeded grid -->
         </div>
@@ -207,6 +226,7 @@
     <!-- about section of book brahma -->
     <section id="about" class="about">
         <div class="container about-bb">
+            <!-- left: about text -->
             <div class="about-txt">
                 <h2>About Book Brahma Foundation</h2>
                 <p>Book Brahma Foundation, a registered charitable trust, promotes literature, art, and culture across
@@ -215,6 +235,8 @@
                     foundation aims to instill literary passion in future generations while digitally safeguarding
                     India’s rich literary heritage.</p>
             </div>
+
+            <!-- right about text -->
             <div class="about-img">
                 <img src="/assets/uploads/festival-illustration.webp"
                     alt="Book brahma literature Festival Illustration">
@@ -225,7 +247,7 @@
     <!-- Counter Up section -->
     <section class="counter-up-section">
         <div class="container counter-up">
-
+            <!-- add the number value in data-target value -->
             <div class="counter">
                 <img src="/assets/icons/writers.png" alt="Counter up image to disaplay on top">
                 <div class="target" data-target="450"></div>
@@ -278,105 +300,99 @@
             <div id="all-speakers">
                 <!-- literary conclave section to keep actuive add : speakers-show-->
                 <div class="grid-speakers speaker-acc speakers-show" id="literary-section">
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
+                    
+                    
+                    
                 </div>
 
                 <!-- publishers conclave section -->
                 <div class="grid-speakers speaker-acc" id="publisher-conclave">
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
@@ -386,54 +402,34 @@
 
                 <!-- children lit fest section -->
                 <div class="grid-speakers speaker-acc" id="children-fest">
+
+                    <!-- speaker card -->
                     <article class="speaker-card">
                         <a href="">
+                            <!-- speaker image -->
                             <div class="speaker-img">
                                 <img src="" alt="">
                             </div>
+                            <!-- speaker Name -->
                             <div class="speaker-text">
                                 <p>Name</p>
                             </div>
                         </a>
                     </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="speaker-card">
-                        <a href="">
-                            <div class="speaker-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="speaker-text">
-                                <p>Name</p>
-                            </div>
-                        </a>
-                    </article>
+
                 </div>
 
                 <!-- performance section -->
                 <div class="performance-container speaker-acc" id="performances">
+
+                    <!-- performance card -->
                     <article class="performance">
+                        <!-- performance image -->
                         <div class="performance-img">
                             <img src="/assets/uploads/BBLF-Website-Performers.webp" alt="">
                         </div>
+                        
+                        <!-- performance details -->
                         <div class="performance-des">
                             <h2>Name</h2>
                             <p>Among the highlights, Ramon Magsaysay Awardee, acclaimed Indian Carnatic vocalist,
@@ -447,10 +443,14 @@
                         </div>
                     </article>
 
+                    <!-- performance card -->
                     <article class="performance">
+                        <!-- performance image -->
                         <div class="performance-img">
                             <img src="/assets/uploads/BBLF-Website-Performers.webp" alt="">
                         </div>
+                        
+                        <!-- performance details -->
                         <div class="performance-des">
                             <h2>Name</h2>
                             <p>Among the highlights, Ramon Magsaysay Awardee, acclaimed Indian Carnatic vocalist,
@@ -464,10 +464,14 @@
                         </div>
                     </article>
 
+                    <!-- performance card -->
                     <article class="performance">
+                        <!-- performance image -->
                         <div class="performance-img">
                             <img src="/assets/uploads/BBLF-Website-Performers.webp" alt="">
                         </div>
+                        
+                        <!-- performance details -->
                         <div class="performance-des">
                             <h2>Name</h2>
                             <p>Among the highlights, Ramon Magsaysay Awardee, acclaimed Indian Carnatic vocalist,
@@ -482,6 +486,7 @@
                     </article>
 
                 </div>
+
             </div>
         </div>
     </section>
@@ -492,6 +497,8 @@
     <section class="event-schedule" id="schedule">
         <div class="container event">
             <h2>Event Schedule</h2>
+
+            <!-- all days schedule button -->
             <div class="event-sc-btn">
                 <button class="btn event-btn active-btn"
                     data-target="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf">Day 1</button>
@@ -505,12 +512,14 @@
                     Schedule</button>
             </div>
 
+            <!-- event pdf iframe container -->
             <div class="event-pdf" id="schedule-pdf">
                 <iframe src="/assets/uploads/schedule/DAY-1-BBLF-2025-SCHEDULE.pdf#toolbar=0&navpanes=0&scrollbar=0"
                     title="BBLF 2025 Schedule">
                 </iframe>
             </div>
 
+            <!-- whole event pdf download button -->
             <div class="event-sc-dw-btn">
                 <a href="/assets/uploads/schedule/BBLF_2025_SCHEDULE.pdf" class="btn event-dw-btn" download
                     target="_blank" rel="noopener">Download Full Schedule</a>
@@ -843,6 +852,7 @@
     <section class="old-archives" id="archives">
         <div class="container archive">
             <h2>Archive</h2>
+            <!-- photo archive -->
             <div class="photo-galary">
                 <div class="gallery">
                     <h3>Photo Gallery - 2024</h3>
@@ -865,6 +875,7 @@
                 </div>
             </div>
 
+            <!-- video archive -->
             <div class="video-gallary">
                 <h3>Video Gallery - 2025</h3>
                 <div class="video-iframe">
@@ -929,6 +940,7 @@
 
                     <!-- testimonial card -->
                     <article class="test-card">
+                        <!-- author details -->
                         <div class="test-author">
                             <div class="test-img">
                                 <img src="/assets/uploads/test-author.webp" alt="">
@@ -939,6 +951,7 @@
                             </div>
                         </div>
 
+                        <!-- text of card -->
                         <div class="test-text">
                             <div class="test-heading">
                                 <h2>The Best-Organized Literature Festival</h2>
@@ -953,6 +966,8 @@
                                     edition all the success.</p>
                             </div>
                         </div>
+
+                        <!-- the top quote image -->
                         <img src="/assets/icons/test.png" alt="Testimonial quote icon" class="test-quote-image">
                     </article>
                     <!-- testimonial card -->
@@ -1098,10 +1113,11 @@
 
     <!-- venue section -->
     <section class="venue-section" id="venue">
-
         <div class="container venue-container">
             <h2>Our Vibrant Venue</h2>
             <div class="venue-grid">
+
+                <!-- embeded map -->
                 <div class="venue-map">
                     <div class="map">
                         <iframe
@@ -1113,6 +1129,7 @@
                         Direction</a>
                 </div>
 
+                <!-- venue dtails card  -->
                 <div class="venue-details">
                     <h3>Venue and Time</h3>
                     <div class="venue-icon">
@@ -1129,6 +1146,7 @@
                         <img src="/assets/images/venue-img.jpg" alt="Venue image">
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1138,7 +1156,7 @@
         <div class="container media-container">
             <h2>Featured in Media</h2>
             <div class="media-slider">
-                <!-- the duplicate track will be automatically created by js -->
+                
                 <div class="media-track">
                     <!-- media-card -->
                     <a href="" target="_blank" class="media-card">
@@ -1193,6 +1211,8 @@
                     </a>
                 </div>
             </div>
+
+            <!-- the duplicate track will be automatically created by js -->
         </div>
     </section>
 
@@ -1201,6 +1221,8 @@
     <!-- contact section  -->
     <section class="contact" id="contact">
         <div class="contact-container container">
+
+            <!-- left side details -->
             <div class="brand-details">
                 <div class="brand-logo">
                     <img src="/assets/images/bblf-logo.png" alt="Book Brahma Literature Festival 2026 Logo">
@@ -1214,6 +1236,7 @@
                 </div>
             </div>
 
+            <!-- right side details -->
             <div class="contact-details">
                 <h2>Contact Us</h2>
                 <p>Book Brahma Foundation</p>
