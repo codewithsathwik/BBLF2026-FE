@@ -17,6 +17,8 @@
     --border-radius: 10px;
     --shadow: 0 10px 30px rgba(0, 0, 0, .2);
     --shadow-2: 0 6px 10px rgba(0, 0, 0, 0.1);
+
+    --transition : all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -78,6 +80,8 @@ section {
     background-color: var(--font-ink-alt);
     color: var(--font-ink-main);
 }
+
+
 
 hr {
     margin: 0;
@@ -1300,21 +1304,23 @@ header {
 
 .session-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    /* 6 columns for easier centering */
+    grid-template-columns: repeat(6, 1fr);          /* 6 columns for easier centering */
     gap: 30px;
     padding: 15px;
+    place-items: center;
 }
 
 .session-card {
     width: 100%;
-    background-color: white;
-    padding: 10px;
+    padding: 12px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-2);
     transition: all 300ms linear;
-    grid-column: span 2;
-    /* Each card spans 2 columns (makes 3 cards per row) */
+    grid-column: span 2;    /* Each card spans 2 columns (makes 3 cards per row) */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .session-card:hover {
@@ -1323,7 +1329,7 @@ header {
 
 .session-card img {
     width: 100%;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius) ;
     aspect-ratio: 16/9;
     object-fit: cover;
     object-position: top center;
@@ -1613,8 +1619,8 @@ header {
 .brand-logo img {width: 100%;}
 .brand-social {flex-direction: row;gap: 15px;}
 .brand-social img {width: 30px;height: 30px;cursor: pointer;}
-.brand-social a {padding: 0;margin: 0;transition: all 300ms ease;}
-.brand-social a:hover {transform: scale(1.1);}
+.brand-social a {padding: 0;margin: 0;transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);}
+.brand-social a:hover {transform: scale(1.1) rotate(25deg);}
 
 /* contact address */
 .contact-details {
