@@ -3,23 +3,19 @@
 :root {
     --font-main: "Poppins", serif;
     --font-alt: "Red Rose", serif;
-
     --scroll-padding: 10px;
-    /*default*/
-
     --color-primary: #DDF2FD;
     --color-alt: #4AB2E6;
     --color-alt2: #F8F1E6D9;
     --font-ink-main: #0B4968;
     --font-ink-alt: #FF9F00;
     --font-ink-head: #222222;
-
     --border-radius: 10px;
     --shadow: 0 10px 30px rgba(0, 0, 0, .2);
     --shadow-2: 0 6px 10px rgba(0, 0, 0, 0.1);
-
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 * {
     box-sizing: border-box;
@@ -80,8 +76,6 @@ section {
     background-color: var(--font-ink-alt);
     color: var(--font-ink-main);
 }
-
-
 
 hr {
     margin: 0;
@@ -975,6 +969,14 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: var(--shadow-2);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.partners-card:hover {
+    transform: translateY(-2px);
+    border: 2px solid var(--font-ink-alt);
 }
 
 /*for the partner card available in special grid */
@@ -1017,6 +1019,7 @@ header {
     .grid-title-partner,
     .grid-special {
         grid-template-columns: 250px !important;
+
     }
 
     .grid-special {
@@ -1061,18 +1064,31 @@ header {
     color: var(--font-ink-head);
     text-align: center;
     margin: 0 0 15px;
+    text-align: start;
+    width: 100%;
+    border-left: 4px solid var(--font-ink-alt);
+    padding-left: 5px;
+}
+
+.gallery h3 {
+    text-align: start;
+    width: 100%;
+    border-left: 4px solid var(--font-ink-alt);
+    padding-left: 5px;
 }
 
 .photo-galary {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 100px;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
 }
 
 .archive-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 15px;
 }
 
@@ -1099,13 +1115,18 @@ header {
 
 /* force to 1 colums in smaller width */
 @media (max-width : 1000px) {
-    .photo-galary {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .archive-grid {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .photo-card img {
         max-height: 250px;
+    }
+}
+
+@media (max-width : 750px) {
+    .archive-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1530,6 +1551,8 @@ header {
     .session-card {
         grid-column: span 2;
         /* Each card spans 2 columns */
+        padding: 6px;
+
     }
 
     /* Reset 3-column rules */
@@ -1935,7 +1958,7 @@ footer p a:hover {
         gap: 60px;
     }
 
-    footer p{
+    footer p {
         font-size: 12px;
     }
 
