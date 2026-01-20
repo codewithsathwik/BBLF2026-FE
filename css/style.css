@@ -821,11 +821,11 @@ header {
 .performance-des p {
     font-size: 14px;
     margin: 0 0px 5px;
-    line-height: 1.6;
+    /* line-height: 1; */
 }
 
 .performance-des h2 {
-    margin: 0 0 10px;
+    margin: 0 0 10px !important;
     font-size: 20px;
 }
 
@@ -2033,6 +2033,7 @@ footer p a:hover {
 
     .performance-des h2 {
         font-size: 16px;
+        margin: 0 0 10px !important;
     }
 
     .performance-des p {
