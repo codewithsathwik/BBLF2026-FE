@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Brahma Literature Festival : Soul of South</title>
+
+    <link rel="icon" href="/assets/images/favicon-bb.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon-bb.png" type="image/x-icon">
+
+    <!-- css file -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animation.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@500&display=swap" rel="stylesheet">
+
+    <!-- open graph -->
+    <meta property="og:title" content="Book Brahma Literature Festival 2026" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <header aria-label="Naviagtion">
+        <div class="container nav-bar">
+            <!-- Left: brand image -->
+            <a href="/">
+                <img src="/assets/images/bblf-logo.png" alt="bblf-logo">
+            </a>
+
+            <!-- Right: brand image -->
+            <nav class="nav">
+                <a href="/">
+                    <img src="/assets/images/bblf-logo.png" alt="bblf-logo">
+                </a>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="/about/" class="nav-link">About</a>
+                <a href="#speakers" class="nav-link">Speakers</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
+                <a href="#partners" class="nav-link">Our Partners</a>
+                <a href="/friends-of-festival/" class="nav-link">Friends of Festival</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="" class="btn">Register</a>
+            </nav>
+
+            <!-- this is for black overlay on mobile navbar : hidden in large screen-->
+            <div class="black-overlay"></div>
+
+            <!-- hidden in large screen -->
+            <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Page heading -->
+    <section class="reg-hero">
+        <div class="container">
+            <div class="kicker">Book Brahma Literature Festival 2026</div>
+            <h1>Registration</h1>
+            <p class="lead">Reserve your free pass for a full day of books, ideas, and conversations.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="register">
+        <div class="container reg-grid">
+            <!-- left / info  -->
+            <div class="reg-form-left panel">
+                <h2>All you need to know</h2>
+                <ul class="reg-info-li">
+                    <li>Entry to the <span>Book Brahma Literature Festival</span> is free with prior registration.</li>
+                    <li>Your pass gives access to keynotes, panels, author sessions, and book signings.</li>
+                    <li>Seating is first-come, first-served. Arrive early for popular sessions.</li>
+                    <li>Share accurate details so we can issue your delegate badge quickly at the venue.</li>
+                    <li>We’ll send your confirmation to the email/phone you provide.</li>
+                    <li>Your information is used only for festival operations and updates.</li>
+                </ul>
+                <p class="help">Need help? Write to <a href="mailto:hello@bookbrahmalitfest.com">hello@bookbrahmalitfest.com</a></p>
+            </div>
+
+            <!-- right / form -->
+            <form id="regForm" class="regFromEvent" method="" action="">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your full name" required value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required value="">
+                        <div class="hint">We’ll send your confirmation here.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile">Mobile (10 digits)</label>
+                        <input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}"
+                            maxlength="10" placeholder="e.g., 9876543210" required value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" placeholder="Your city" required value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select language(s) of your choice</label>
+                        <div class="row" role="group" aria-label="Languages">
+                            <label class="check"><input type="checkbox" name="languages[]" value="Kannada">
+                                Kannada</label>
+                            <label class="check"><input type="checkbox" name="languages[]" value="Telugu">
+                                Telugu</label>
+                            <label class="check"><input type="checkbox" name="languages[]" value="Tamil">
+                                Tamil</label>
+                            <label class="check"><input type="checkbox" name="languages[]" value="Malayalam">
+                                Malayalam</label>
+                                <label class="check"><input type="checkbox" name="languages[]" value="English">
+                                English</label>
+                        </div>
+                        <div class="hint">Pick at least one language.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="audience">Are you a?</label>
+                        <select id="audience" name="audience" required>
+                            <option value="" disabled selected>Select</option>
+                            <option>Student</option>
+                            <option>Entrepreneur / Self Employed</option>
+                            <option>Working Professional</option>
+                            <option>Press / Media</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn" type="submit">Register</button>
+                    <a class="btn secondary" href="/">Home</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-hashtag-container">
+                <h1 class="footer-hashtag">#BBLF2026</h1>
+            </div>
+            <p>Copyright © 2026, Book Brahma Foundation. All rights reserved. Bringing love into design by BB DigiTech®.
+                |
+                <a href="/terms-and-conditions/" target="_blank">Terms and Conditions</a>
+            </p>
+        </div>
+
+    </footer>
+
+
+    <script src="js/common.js"></script>
+</body>
+
+</html>

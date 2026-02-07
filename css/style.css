@@ -290,7 +290,6 @@ header {
 
 /* timer countdown  */
 .countdown {
-    max-width: px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -2734,4 +2733,140 @@ footer p a:hover {
     .page-404 h1 {
         font-size: 24px;
     }
+}
+
+/* ===========================registraion page=========================== */
+.reg-hero,
+.register {
+    background-color: var(--color-primary);
+}
+
+.reg-hero{
+    text-align: center;
+}
+.reg-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    align-items: start;
+    gap: 30px;
+}
+
+.reg-hero .kicker {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--font-ink-main);
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.reg-hero h1 {
+    margin: 10px 0 0;
+    color: var(--font-ink-head);
+}
+
+.regFromEvent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* max-width: 500px; */
+}
+
+.regFromEvent label::after {
+    content: "*";
+    color: red;
+}
+
+.check::after {
+    content: "" !important;
+}
+
+.panel {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-2);
+    padding: 18px;
+    margin-bottom: 30px;
+}
+
+.panel ul {
+    margin: 10px 0 0 18px;
+    color: #374151;
+}
+
+.panel li {
+    margin: .45rem 0;
+}
+
+.form-grid {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: .8rem .9rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #f3f4f6
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 4px 16px px 0;
+}
+
+.hint {
+    font-size: .8rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.actions button , .actions a{
+    border: none;
+    font-size: 14px !important;
+}
+
+.help a{
+    color: var(--font-ink-main);
+}
+
+.reg-info-li li span{
+    font-weight: 600;
+}
+
+@media (max-width : 800px) {
+    .reg-info-li, .lead{font-size: 14px;}
+    .reg-grid{grid-template-columns: 1fr; gap: 15px;}
 }
