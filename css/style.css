@@ -2747,6 +2747,7 @@ footer p a:hover {
 .reg-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "info form";
     place-items: center;
     align-items: start;
     gap: 30px;
@@ -2883,6 +2884,8 @@ input:focus, input:focus-within {
     color: var(--font-ink-main);
 }
 
+.help{text-align: center; margin: 0;}
+
 .bb{
     font-weight: 600;
 }
@@ -2903,10 +2906,19 @@ input:focus, input:focus-within {
 
 @media (max-width : 800px) {
     .reg-info-li, .lead{font-size: 14px;}
-    .reg-grid{grid-template-columns: 1fr; gap: 15px;}
+    .reg-grid{
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        grid-template-areas: "form" "info";
+    }
+    .reg-form-left{grid-area: info;}
+    .reg-form-right{grid-area: form;}
     .panel-2 p,.panel-2 div{font-size: 14px;}
     .panel-2 h1{font-size: 20px;}
     .actions a{font-size: 14px; padding: 5px 10px;}
     .reg-logo{width: 65px;}
+    .panel ul{
+        margin: 0;
+    }
 }
 
