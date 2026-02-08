@@ -2803,6 +2803,7 @@ footer p a:hover {
 }
 
 .panel-2{
+    padding: 30px 15px !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2892,6 +2893,12 @@ input:focus, input:focus-within {
 
 .reg-con-socials{
     margin-top: 20px !important;
+}
+
+.reg-con-socials p, .reg-web{margin-bottom: 8px !important;}
+
+.reg-web{
+    color: var(--font-ink-main);
 }
 
 @media (max-width : 800px) {
