@@ -1,7 +1,7 @@
 
 // ================timer for the event================
 
-const eventDate = new Date("2026-08-20 GMT+05:30").getTime(); // IN YYYY-MM-DD and time zone for corrrect date
+const eventDate = new Date("2026-08-21 GMT+05:30").getTime(); // IN YYYY-MM-DD and time zone for corrrect date
 const d = document.getElementById("d");
 const h = document.getElementById("h");
 const m = document.getElementById("m");
