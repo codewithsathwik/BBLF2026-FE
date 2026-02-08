@@ -2767,6 +2767,13 @@ footer p a:hover {
     color: var(--font-ink-head);
 }
 
+.reg-logo{
+    width: 100px;
+}
+
+.reg-logo img{
+    width: 100%;
+}
 .regFromEvent {
     background-color: white;
     padding: 20px;
@@ -2793,6 +2800,15 @@ footer p a:hover {
     box-shadow: var(--shadow-2);
     padding: 18px;
     margin-bottom: 30px;
+}
+
+.panel-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .panel ul {
@@ -2824,6 +2840,10 @@ select {
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     background: #f3f4f6
+}
+
+input:focus, input:focus-within {
+  outline: 2px solid var(--font-ink-alt);
 }
 
 .row {
@@ -2862,11 +2882,24 @@ select {
     color: var(--font-ink-main);
 }
 
-.reg-info-li li span{
+.bb{
     font-weight: 600;
+}
+
+.panel-2 p,.panel-2 div,.panel-2 h1{
+    margin: 0;
+}
+
+.reg-con-socials{
+    margin-top: 20px !important;
 }
 
 @media (max-width : 800px) {
     .reg-info-li, .lead{font-size: 14px;}
     .reg-grid{grid-template-columns: 1fr; gap: 15px;}
+    .panel-2 p,.panel-2 div{font-size: 14px;}
+    .panel-2 h1{font-size: 20px;}
+    .actions a{font-size: 14px; padding: 5px 10px;}
+    .reg-logo{width: 65px;}
 }
+

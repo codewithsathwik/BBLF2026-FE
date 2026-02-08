@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Brahma Literature Festival : Soul of South</title>
+    <title>Register - Book Brahma Literature Festival : Soul of South</title>
 
     <link rel="icon" href="/assets/images/favicon-bb.png" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/images/favicon-bb.png" type="image/x-icon">
@@ -75,14 +75,14 @@
             <div class="reg-form-left panel">
                 <h2>All you need to know</h2>
                 <ul class="reg-info-li">
-                    <li>Entry to the <span>Book Brahma Literature Festival</span> is free with prior registration.</li>
+                    <li>Entry to the <span class="bb">Book Brahma Literature Festival</span> is free with prior registration.</li>
                     <li>Your pass gives access to keynotes, panels, author sessions, and book signings.</li>
                     <li>Seating is first-come, first-served. Arrive early for popular sessions.</li>
                     <li>Share accurate details so we can issue your delegate badge quickly at the venue.</li>
                     <li>We’ll send your confirmation to the email/phone you provide.</li>
                     <li>Your information is used only for festival operations and updates.</li>
                 </ul>
-                <p class="help">Need help? Write to <a href="mailto:hello@bookbrahmalitfest.com">hello@bookbrahmalitfest.com</a></p>
+                <p class="help">Need help? Write to <a href="mailto:help@bookbrahmalitfest.com">help@bookbrahmalitfest.com</a></p>
             </div>
 
             <!-- right / form -->
@@ -91,27 +91,30 @@
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input id="name" name="name" type="text" placeholder="Your full name" required value="">
+                        <div class="validtaion"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email : <span class="hint">(We’ll send your confirmation here)</span></label>
                         <input id="email" name="email" type="email" placeholder="you@example.com" required value="">
-                        <div class="hint">We’ll send your confirmation here.</div>
+                        <div class="validtaion"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="mobile">Mobile (10 digits)</label>
+                        <label for="mobile">Mobile : <span class="hint">(10 Digits)</span></label>
                         <input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}"
                             maxlength="10" placeholder="e.g., 9876543210" required value="">
+                        <div class="validtaion"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="city">City</label>
                         <input id="city" name="city" type="text" placeholder="Your city" required value="">
+                        <div class="validtaion"></div>
                     </div>
 
                     <div class="form-group">
-                        <label>Select language(s) of your choice</label>
+                        <label>Select language(s) of your choice: <span class="hint">(Pick at least one)</span></label>
                         <div class="row" role="group" aria-label="Languages">
                             <label class="check"><input type="checkbox" name="languages[]" value="Kannada">
                                 Kannada</label>
@@ -124,7 +127,7 @@
                                 <label class="check"><input type="checkbox" name="languages[]" value="English">
                                 English</label>
                         </div>
-                        <div class="hint">Pick at least one language.</div>
+                        <div class="validtaion"></div>
                     </div>
 
                     <div class="form-group">
@@ -137,6 +140,7 @@
                             <option>Press / Media</option>
                             <option>Others</option>
                         </select>
+                        <div class="validtaion"></div>
                     </div>
                 </div>
 
@@ -162,7 +166,9 @@
     </footer>
 
 
-    <script src="js/common.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/validation.js"></script>
+
 </body>
 
 </html>
