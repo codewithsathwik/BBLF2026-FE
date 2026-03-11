@@ -14,6 +14,12 @@
     --shadow: 0 10px 30px rgba(0, 0, 0, .2);
     --shadow-2: 0 6px 10px rgba(0, 0, 0, 0.1);
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --color-mint : #98D8C8;
+    --color-orange : #EA6B56;
+    --color-blue : #6B88FE;
+    --color-yellow : #FBD36D;
+    --color-pink : #FAD0CE;
 }
 
 
@@ -1490,6 +1496,7 @@ header {
     padding: 12px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-2);
+    /* box-shadow: 5px 10px var(--font-ink-alt); */
     transition: all 300ms linear;
     grid-column: span 2;
     /* Each card spans 2 columns (makes 3 cards per row) */
@@ -1497,6 +1504,7 @@ header {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 2px solid rgb(255, 255, 255);
+
 }
 
 .session-card:hover {
@@ -1911,10 +1919,14 @@ header {
 footer {
     padding: 20px 0px;
     background-color: var(--color-alt);
+        /* background: linear-gradient(145deg, rgba(152, 216, 200, 1) 0%, rgba(221, 242, 253, 1) 50%); */
+        background: RGBA(152, 216, 200, 0.1);
+background: linear-gradient(0deg, rgba(152, 216, 200, 1) 0%, rgba(221, 242, 253, 1) 100%);
+
 }
 
 footer p {
-    color: white;
+    color: var(--font-ink-main);
     text-align: center;
     margin: 0;
     font-size: 14px;
@@ -1924,6 +1936,7 @@ footer p {
 footer p a {
     color: var(--font-ink-main);
     transition: all 300ms ease;
+    text-decoration: underline;
 }
 
 footer p a:hover {
@@ -1947,7 +1960,10 @@ footer p a:hover {
     color: transparent;
     background-clip: text;
     opacity: 0.9;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, var(--color-alt) 80%, var(--color-alt) 100%);
+    /* background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, var(--color-alt) 80%, var(--color-alt) 100%); */
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(180deg, var(--font-ink-main) 15%, var(--color-mint) 80%, var(--font-ink-main) 100%);
 }
 
 /* forcing to wrap in the columsn for mobile display */
